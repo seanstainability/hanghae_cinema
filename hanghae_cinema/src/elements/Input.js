@@ -32,6 +32,7 @@ const Input = (props) => {
       {isSubmit ? (
         <ElInput
           type={type}
+          bordered={false}
           placeholder={placeholder}
           value={value}
           onChange={_onChange}
@@ -45,7 +46,12 @@ const Input = (props) => {
           // }}
         />
       ) : (
-        <ElInput type={type} placeholder={placeholder} onChange={_onChange} />
+        <ElInput
+          type={type}
+          bordered={false}
+          placeholder={placeholder}
+          onChange={_onChange}
+        />
       )}
     </React.Fragment>
   );
@@ -63,19 +69,21 @@ Input.defaultProps = {
 };
 
 const ElTextarea = styled(AInput.TextArea)`
-  border: 1px solid #000000;
+  border: 1px solid #ffffff;
   width: 100%;
   font-family: "Noto Sans KR", sans-serif;
   padding: 12px 4px;
   box-sizing: border-box;
+  carot-color: #ffffff;
 `;
 
 const ElInput = styled(AInput)`
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #ffffff;
   width: 100%;
   font-family: "Noto Sans KR", sans-serif;
   padding: 12px 4px;
   box-sizing: border-box;
+  carot-color: #ffffff;
 `;
 
 export default Input;

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Input } from "../elements";
 import styled from "styled-components";
 import { Form } from "antd";
+import Logo from "../components/Logo";
 
 const Signup = (props) => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Signup = (props) => {
   return (
     <>
       <Wrap>
+        <Logo size="80px" />
         <FormWrap onFinish={onSignUp}>
           <Form.Item>
             <Input
