@@ -1,3 +1,15 @@
+body {
+  background-color: #111426;
+}
+
+.ant-card-body {
+  padding: 0;
+}
+
+.ant-layout-header {
+  padding: 0 10px;
+}
+
 .App {
   text-align: center;
 }
