@@ -74,7 +74,7 @@ const ElTextarea = styled(AInput.TextArea)`
   font-family: "Noto Sans KR", sans-serif;
   padding: 12px 4px;
   box-sizing: border-box;
-  carot-color: #ffffff;
+  color: #ffffff;
 `;
 
 const ElInput = styled(AInput)`
@@ -83,7 +83,7 @@ const ElInput = styled(AInput)`
   font-family: "Noto Sans KR", sans-serif;
   padding: 12px 4px;
   box-sizing: border-box;
-  carot-color: #ffffff;
+  color: #ffffff;
 `;
 
 export default Input;

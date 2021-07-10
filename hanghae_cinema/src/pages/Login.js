@@ -4,7 +4,7 @@ import { logIn } from "../redux/async/user";
 import { Input } from "../elements";
 import styled from "styled-components";
 import { Form } from "antd";
-import Logo from "../components/Logo"
+import Logo from "../components/Logo";
 
 const Login = (props) => {
   const user = useSelector((state) => state.user);

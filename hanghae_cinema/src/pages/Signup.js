@@ -15,7 +15,7 @@ const Signup = (props) => {
   return (
     <>
       <Wrap>
-        <Logo size="80px" />
+        <Logo />
         <FormWrap onFinish={onSignUp}>
           <Form.Item>
             <Input
@@ -59,6 +59,7 @@ const Wrap = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  flex-direction: column;
 `;
 
 const FormWrap = styled(Form)`
