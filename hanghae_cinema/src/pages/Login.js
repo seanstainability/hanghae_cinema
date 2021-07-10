@@ -1,24 +1,24 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../redux/actions/user";
-import userSlice from "../redux/reducers/userSlice";
+import { logIn } from "../redux/async/user";
+import { logOut } from "../redux/modules/userSlice";
 
 const Login = (props) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  console.log(user);
+  console.log("Login", user);
 
   const onClick = useCallback(() => {
     dispatch(
       logIn({
-        email: "sean@gmail.com",
-        password: "seanpw",
+        email: "abc@abc.com",
+        password: "abc",
       })
     );
   }, []);
 
   const onLogout = useCallback(() => {
-    dispatch(userSlice.actions.logOut());
+    dispatch(logOut());
   }, []);
 
   return (
@@ -26,7 +26,7 @@ const Login = (props) => {
       {user.isLoggingIn ? (
         <div>로그인 중</div>
       ) : user.data ? (
-        <div>{user.data.nickname}</div>
+        <div>{user.data.email}</div>
       ) : (
         "로그인 해주세요."
       )}
