@@ -30,9 +30,10 @@ Logo.defaultProps = {
   children: null,
   text: "HANGHAE CINEMA",
   color: "#F2E4D8",
-  size: "30px",
+  size: "80px",
   inline: false,
   cursor: "pointer",
+  textAlign: "center",
 };
 
 const LogoLarge = styled.p`
@@ -45,6 +46,7 @@ const LogoLarge = styled.p`
   font-family: "Bebas Neue";
   cursor: pointer;
   ${(props) => (props.inline? `display: ${props.inline};` : '')};
+  text-align: center;
   text-shadow: 
     #D91250 0px 0px,#D91250 1px 1px,#D91250 2px 2px,#D91250 3px 3px,
     #D91250 4px 4px,#D91250 5px 5px,#D91250 6px 6px,#D91250 7px 7px,
