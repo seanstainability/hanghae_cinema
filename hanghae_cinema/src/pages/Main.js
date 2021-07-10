@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import Movie from "../components/Movie";
 
 const Main = (props) => {
-    return (
-        <>
-        Main
-        </>
-    )
-}
+  return (
+    <>
+      <Movie />
+    </>
+  );
+};
 
 export default Main;

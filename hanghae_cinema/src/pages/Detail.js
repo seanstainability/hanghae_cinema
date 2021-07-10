@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import ReviewList from "../components/Movie";
 
 const Detail = (props) => {
-    return (
-        <>
-        Detail
-        </>
-    )
-}
+  return (
+    <>
+      <ReviewList />
+    </>
+  );
+};
 
 export default Detail;
