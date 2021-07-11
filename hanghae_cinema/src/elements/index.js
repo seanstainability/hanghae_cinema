@@ -1,5 +1,6 @@
 import Input from "./Input";
 import Button from "./Button";
 import Spinner from "./Spinner";
+import Text from "./Text";
 
-export { Input, Button, Spinner };
+export { Input, Spinner, Text, Button };
