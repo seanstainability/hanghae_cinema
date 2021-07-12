@@ -6,9 +6,9 @@ const Text = (props) => {
 /*
   type
   - null : default; sans-serif
-  - serif : 국문 제목 및 본문
-  - krHeading : 국문 헤딩
-  - enHeading : 영문 헤딩
+  - serif : 국문 serif, sans-serif
+  - hKR : 국문 헤딩
+  - hEN : 영문 헤딩
 */
   const styles = {
     bold: bold, 
