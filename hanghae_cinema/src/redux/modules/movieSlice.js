@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMovies } from "../async/movie";
+import { getMovies, search } from "../async/movie";
 
 const initialState = {
   list: [],

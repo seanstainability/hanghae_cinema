@@ -6,7 +6,6 @@ import Movie from "../components/Movie";
 import Header from "../components/Header";
 import SearchInput from "../components/SearchInput";
 import { Spinner, Input } from "../elements";
-import { miniSerializeError } from "@reduxjs/toolkit";
 
 const Main = (props) => {
   const { history } = props;

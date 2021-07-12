@@ -3,18 +3,13 @@ import { Card } from "antd";
 import styled from "styled-components";
 
 const Movie = (props) => {
-  console.log(props);
+  const { title, image } = props;
   return (
     <React.Fragment>
       <Card
         hoverable
         style={{ padding: 0 }}
-        cover={
-          <ImgWrap
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
-        }
+        cover={<ImgWrap alt={title} src={image} />}
       ></Card>
     </React.Fragment>
   );

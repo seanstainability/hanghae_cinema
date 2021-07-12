@@ -21,3 +21,14 @@ export const getMovies = createAsyncThunk(
     return result;
   }
 );
+
+export const search = createAsyncThunk(
+  "movie/getMovie",
+  async (data, thunkAPI) => {
+    // const result = await axios.get(`/search?title=${data.title}`);
+    // console.log(result);
+    const result = await delay(500, generateDummyMovie(1));
+    console.log("result", result);
+    return result;
+  }
+);
