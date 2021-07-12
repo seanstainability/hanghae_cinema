@@ -8,19 +8,19 @@ const ReviewItem = (props) => {
 	return (
 		<>
 			<ItemCard>
-				<Contents style={{width: "100%", flex: 1}}>
+				<Contents>
 
-					<Contents style={{textAlign: "center", width: "64px", flex: "none"}}>
+					<Contents style={{textAlign: "center"}}>
 						<ProfileImage />
 					</Contents>
 
-					<Contents style={{padding: "0px 16px", flexDirection: "column", flex: "none"}}>
+					<Contents style={{padding: "0px 16px", flexDirection: "column"}}>
 						<Text bold>씨네21 || 배동미</Text>
 						<Text margin="0px">점입가경 빙의, 옥죄어 오는 공포. 극장에서 도망치고 싶었다</Text>
 						{/* <Text margin="0px">insert_dt</Text> */}
-						<div>
+						{/* <div>
 							<Button margin="16px 0px 4px 0px" type="edit" text="EDIT"/>
-						</div>
+						</div> */}
 					</Contents>	
 
 				</Contents>
@@ -36,13 +36,13 @@ const ReviewItem = (props) => {
 
 			{/* Test */}
 			<ItemCard>
-				<Contents style={{width: "100%", flex: 1}}>
+				<Contents>
 
-					<Contents style={{textAlign: "center", width: "64px", flex: "none"}}>
+					<Contents style={{textAlign: "center"}}>
 						<ProfileImage />
 					</Contents>
 
-					<Contents style={{padding: "0px 16px", flexDirection: "column", flex: "none"}}>
+					<Contents style={{padding: "0px 16px", flexDirection: "column"}}>
 						<Text bold>user_name</Text>
 						<Text margin="0px">comment</Text>
 					</Contents>	
@@ -89,6 +89,7 @@ const ItemCard = styled.div`
 		};
 	display: flex;
 	justify-content: space-between;
+	flex: auto;
   /* ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between; `

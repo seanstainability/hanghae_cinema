@@ -34,6 +34,8 @@ const ReviewList = () => {
 
 const Wrapper = styled.div`
   width: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeadingBlock = styled.div`
