@@ -12,6 +12,7 @@ import Main from "../pages/Main";
 import Detail from "../pages/Detail";
 // import Mypage from "../pages/Mypage";
 import { Counter } from "../pages/Counter"; // Test!
+import TestAssets from "../pages/TestAssets"; // Test!
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/movie/:id" exact component={Detail} />
         {/* <Route path="/profile" exact component={Mypage} /> */}
         <Route path="/counter" exact component={Counter} />
+        <Route path="/test" exact component={TestAssets} /> {/* test */}
       </ConnectedRouter>
     </React.Fragment>
   );
