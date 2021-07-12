@@ -6,15 +6,20 @@ import Movie from "../components/Movie";
 import Header from "../components/Header";
 import SearchInput from "../components/SearchInput";
 import { Spinner, Input } from "../elements";
+import InfinityScroll from "../shared/InfinityScroll";
 
 const Main = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
   //   const user_info = useSelector((state) => state.user.user);
-  const { list, isDone } = useSelector((state) => state.movie);
+  const { list, paging, isDone, isLoading } = useSelector(
+    (state) => state.movie
+  );
 
   React.useEffect(() => {
-    dispatch(getMovies());
+    if (list.length < 2) {
+      dispatch(getMovies());
+    }
   }, []);
 
   return (
@@ -39,14 +44,22 @@ const Main = (props) => {
         > */}
         <SearchInput />
         <Row gutter={[8, 16]}>
+          {/* <InfinityScroll
+            callNext={() => {
+              dispatch(getMovies(paging.next));
+            }}
+            isNext={paging.next ? true : false}
+            loading={isLoading}
+          > */}
           {isDone &&
             list.map((m) => {
               return (
                 <Col span={6}>
-                  <Movie key={m.id} {...m} />
+                  <Movie key={m.id} {...m} history={history} />
                 </Col>
               );
             })}
+          {/* </InfinityScroll> */}
         </Row>
         {/* </Layout.Content> */}
       </Layout>
