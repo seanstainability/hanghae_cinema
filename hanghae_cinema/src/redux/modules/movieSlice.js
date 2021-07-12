@@ -24,6 +24,15 @@ const movieSlice = createSlice({
       .addCase(getMovies.rejected, (state, action) => {
         state.error = action.error;
       })
+      .addCase(search.pending, (state, action) => {
+        state.list = null;
+      })
+      .addCase(search.fulfilled, (state, action) => {
+        state.list = action.payload;
+      })
+      .addCase(search.rejected, (state, action) => {
+        state.error = action.error;
+      })
       .addMatcher(
         (action) => {
           return action.type.includes("/pending");

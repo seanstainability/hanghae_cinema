@@ -50,6 +50,7 @@ const Input = (props) => {
           type={type}
           bordered={false}
           placeholder={placeholder}
+          value={value}
           onChange={_onChange}
         />
       )}
