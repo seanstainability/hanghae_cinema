@@ -120,9 +120,9 @@ const SecondaryButton = styled.button`
 	border-radius: 20px;
 	box-shadow: 0px 8px 24px rgba(217, 18, 80, 0.3);
 	-webkit-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
-	-moz-transition: all 0.3s ;
-	-ms-transition: all 0.3s ;
-	transition: all 0.3s ;
+	-moz-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+	-ms-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+	transition: all 0.3s cubic-bezier(.645,.045,.355,1);
 		&:hover{
   		background-color: #D91250;
 			color: #F2E4D8;
