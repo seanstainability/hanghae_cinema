@@ -1,15 +1,70 @@
 import React from "react";
-import { Input, Button} from "../elements";
+import styled from "styled-components";
+import { Button, Input } from "../elements";
 
-const CommentWrite = () => {
+const ReviewWrite = () => {
     return (
       <React.Fragment>
-        <div padding="16px" is_flex>
-          <Input placeholder="댓글을 입력하세요 :)" />
-          <Button width="50px" margin="0px 2px 0px 2px">작성</Button>
-        </div>
+        <ItemCard>
+				<Contents style={{width: "100%", flex: 1}}>
+        	<Contents style={{textAlign: "center", width: "64px", flex: "none"}}>
+						<ProfileImage />
+					</Contents>
+					<Contents style={{padding: "0px 8px 0px 16px", flexDirection: "column", flex: 1}}>
+            <div style={{}}>
+              <Input placeholder="이름" />
+              <Input placeholder="리뷰를 남겨 주세요." />
+            </div> 
+            <div style={{textAlign: "right"}}>
+              <Button margin="24px 0px 4px" text="SAVE"></Button>
+            </div> 
+					</Contents>
+				</Contents>		
+			</ItemCard>
       </React.Fragment>
     );
 }
 
-export default CommentWrite;
+const ItemCard = styled.div`
+  width: 100%;
+	background-color: #212539;
+	box-sizing: border-box;
+	border: 1px solid #212539;
+	border-radius: 10px;
+	margin: 0px 0px 20px 0px;
+	padding: 20px 16px;
+	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.4);
+	-webkit-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+	-moz-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+	-ms-transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+	transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+		&:hover{
+			box-shadow: 0px 0px 16px 4px rgba(0, 0, 0, 0.7);
+			border: 1px solid rgba(100, 100, 160, 0.2);
+		};
+	display: flex;
+	justify-content: space-between;
+  /* ${(props) =>
+    props.is_flex
+      ? `display: flex; align-items: center; justify-content: space-between; `
+      : ""} */
+`;
+
+const Contents = styled.div`
+	width: auto;
+  display: flex;
+`;
+
+const ProfileImage = styled.div`
+	display: inline-block;
+	--size: 56px;
+	width: var(--size);
+	height: var(--size);
+	border-radius: var(--size);
+	background-color: #736F68;
+	/* background-image: url("${(props) => props.src}");
+	background-size: cover; */
+`;
+
+
+export default ReviewWrite;
