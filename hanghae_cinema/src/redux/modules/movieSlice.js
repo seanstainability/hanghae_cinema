@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMovies } from "../async/movie";
+import { getMovies, search } from "../async/movie";
 
 const initialState = {
   list: [],
+  paging: { start: null, next: null, size: 12 },
   isLoading: false,
   isDone: false,
   isError: null,
