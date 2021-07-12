@@ -1,18 +1,19 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../redux/async/user";
-import { Input } from "../elements";
+// import { logIn } from "../redux/async/user";
+// import { Input } from "../elements";
 import styled from "styled-components";
 import { Form } from "antd";
 import Logo from "../components/Logo";
+import { Button, Text } from "../elements";
 
 const Login = (props) => {
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user);
+  // const dispatch = useDispatch();
 
-  const onLogIn = useCallback(() => {
-    // dispatch();
-  }, []);
+  // const onLogIn = useCallback(() => {
+  //   // dispatch();
+  // }, []);
 
   // Test!
   // const onClick = useCallback(() => {
@@ -28,8 +29,9 @@ const Login = (props) => {
     <>
       <Wrap>
         <Logo />
-        <FormWrap onFinish={onLogIn}>
-          <Form.Item>
+        <FormWrap>
+          {/* <FormWrap onFinish={onLogIn}> */}
+          {/* <Form.Item>
             <Input
               label="EMAIL"
               placeholder="이메일를 입력해주세요."
@@ -43,7 +45,14 @@ const Login = (props) => {
               placeholder="비밀번호를 입력해주세요."
               _onChange={(e) => {}}
             />
-          </Form.Item>
+          </Form.Item> */}
+          <Button
+            _onClick={() => {
+              props.history.push("/movies");
+            }}
+          >
+            입장하기
+          </Button>
         </FormWrap>
       </Wrap>
     </>

@@ -6,11 +6,13 @@ import { connectRouter } from "connected-react-router";
 
 import userSlice from "./modules/userSlice";
 import counterSlice from "./modules/counterSlice"; // Test!
+import movieSlice from "./modules/movieSlice";
 
 export const history = createBrowserHistory();
 
 const reducer = combineReducers({
   user: userSlice.reducer,
+  movie: movieSlice.reducer,
   counter: counterSlice.reducer,
   router: connectRouter(history),
 });
