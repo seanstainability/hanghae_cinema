@@ -4,23 +4,14 @@ import styled from "styled-components";
 import { Text, Button } from "../elements";
 import { EditFilled } from "@ant-design/icons";
 import ReviewItem from "./ReviewItem";
-import { Modal } from "antd";
-
+import ReviewWrite from "./ReviewWrite";
 import { useState } from "react";
 
 const ReviewList = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  // 리뷰 입력 필드 펼치기/닫기 토글
+  const [isWriteVisible, setIsWriteVisible] = useState(false);
+  const toggleWriteField = () => {
+    setIsWriteVisible(isWriteVisible => !isWriteVisible);
   };
 
   return (
@@ -30,21 +21,12 @@ const ReviewList = () => {
           <Text type="hEn" bold size="2.4rem">
             Review
           </Text>
-          <Button type="icon" padding="0px 8px" _onClick={showModal}>
+          <Button type="icon" padding="0px 8px" _onClick={toggleWriteField}>
             <EditFilled style={{ fontSize: "2.4rem" }} />
           </Button>
         </HeadingBlock>
-        <ReviewItem />
-        <>
-          <Modal
-            title="리뷰 남기기"
-            visible={isModalVisible}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <p>Some contents...</p>
-          </Modal>
-        </>
+        { isWriteVisible ? <ReviewWrite /> : null }        
+        <ReviewItem />        
       </Wrapper>
     </React.Fragment>
   );

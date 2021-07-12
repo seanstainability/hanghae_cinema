@@ -8,13 +8,13 @@ const ReviewItem = (props) => {
 	return (
 		<>
 			<ItemCard>
-				<Contents style={{display: "flex"}}>
+				<Contents style={{width: "100%", flex: 1}}>
 
-					<Contents style={{textAlign: "center", width: "64px"}}>
+					<Contents style={{textAlign: "center", width: "64px", flex: "none"}}>
 						<ProfileImage />
 					</Contents>
 
-					<Contents style={{padding: "0px 16px"}}>
+					<Contents style={{padding: "0px 16px", flexDirection: "column", flex: "none"}}>
 						<Text bold>씨네21 || 배동미</Text>
 						<Text margin="0px">점입가경 빙의, 옥죄어 오는 공포. 극장에서 도망치고 싶었다</Text>
 						{/* <Text margin="0px">insert_dt</Text> */}
@@ -24,7 +24,11 @@ const ReviewItem = (props) => {
 					</Contents>	
 
 				</Contents>
-				<Contents style={{textAlign: "center", width: "40px"}}>
+				<Contents style={{
+					textAlign: "center", 
+					width: "40px" , 
+					marginLeft: "auto", 
+					flexDirection: "column"}}>
 					<Button type="icon"><LikeFilled style={{fontSize: "2.8rem",}}/></Button>
 					<Text bold>10</Text>
 				</Contents>			
@@ -32,19 +36,23 @@ const ReviewItem = (props) => {
 
 			{/* Test */}
 			<ItemCard>
-				<Contents style={{display: "flex"}}>
+				<Contents style={{width: "100%", flex: 1}}>
 
-					<Contents style={{textAlign: "center", width: "64px"}}>
+					<Contents style={{textAlign: "center", width: "64px", flex: "none"}}>
 						<ProfileImage />
 					</Contents>
 
-					<Contents style={{padding: "0px 16px"}}>
+					<Contents style={{padding: "0px 16px", flexDirection: "column", flex: "none"}}>
 						<Text bold>user_name</Text>
 						<Text margin="0px">comment</Text>
 					</Contents>	
 
 				</Contents>
-				<Contents style={{textAlign: "center", width: "40px"}}>
+				<Contents style={{
+					textAlign: "center", 
+					width: "40px" , 
+					marginLeft: "auto", 
+					flexDirection: "column"}}>
 					<Button type="icon"><LikeFilled style={{fontSize: "2.8rem",}}/></Button>
 					<Text bold>Likes</Text>
 				</Contents>			
@@ -89,6 +97,7 @@ const ItemCard = styled.div`
 
 const Contents = styled.div`
 	width: auto;
+  display: flex;
 `;
 
 const ProfileImage = styled.div`
