@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { generateDummyMovie } from "../../test/dummy";
 
 const delay = (time, value) =>
   new Promise((resolve, reject) => {
@@ -9,12 +10,13 @@ const delay = (time, value) =>
   });
 
 export const getMovies = createAsyncThunk(
-  "user/getMovies",
+  "movie/getMovies",
   async (data, thunkAPI) => {
-    // const result = await axios.post("/login", data);
+    // const result = await axios.get("/movies");
     // console.log(result);
-    const result = await delay(500, data);
-    console.log(data);
+    const response = generateDummyMovie(10);
+    console.log(response);
+    const result = await delay(500, response);
     console.log("result", result);
     return result;
   }

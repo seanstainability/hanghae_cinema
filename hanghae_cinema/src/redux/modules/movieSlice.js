@@ -2,23 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getMovies } from "../async/movie";
 
 const initialState = {
-  movies: [],
+  list: [],
   isLoading: false,
   isDone: false,
   isError: null,
 };
 
 const movieSlice = createSlice({
-  name: "user",
+  name: "movie",
   initialState,
   reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(getMovies.pending, (state, action) => {
-        state.movies = null;
+        state.list = null;
       })
       .addCase(getMovies.fulfilled, (state, action) => {
-        state.movies = action.payload;
+        state.list = action.payload;
       })
       .addCase(getMovies.rejected, (state, action) => {
         state.error = action.error;
