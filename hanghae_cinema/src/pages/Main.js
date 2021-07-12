@@ -32,7 +32,7 @@ const Main = (props) => {
           backgroundColor: "#111426",
         }}
       >
-        {/* {isLoading && <Spinner />} */}
+        {isLoading && <Spinner />}
         <Header history={history} />
         {/* <Layout.Content
           className="site-layout"
@@ -44,22 +44,22 @@ const Main = (props) => {
         > */}
         <SearchInput />
         <Row gutter={[8, 16]}>
-          {/* <InfinityScroll
+          <InfinityScroll
             callNext={() => {
               dispatch(getMovies(paging.next));
             }}
             isNext={paging.next ? true : false}
             loading={isLoading}
-          > */}
-          {isDone &&
-            list.map((m) => {
-              return (
-                <Col span={6}>
-                  <Movie key={m.id} {...m} history={history} />
-                </Col>
-              );
-            })}
-          {/* </InfinityScroll> */}
+          >
+            {isDone &&
+              list.map((m) => {
+                return (
+                  <Col span={6}>
+                    <Movie key={m.id} {...m} history={history} />
+                  </Col>
+                );
+              })}
+          </InfinityScroll>
         </Row>
         {/* </Layout.Content> */}
       </Layout>
