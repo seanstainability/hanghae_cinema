@@ -14,7 +14,7 @@ const Main = (props) => {
   //   const movies = useSelector((state) => state.movie.list);
 
   React.useEffect(() => {
-    // dispatch(getMovies());
+    dispatch(getMovies());
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
+import axios from "axios";
 
 const delay = (time, value) =>
   new Promise((resolve, reject) => {
@@ -11,13 +11,11 @@ const delay = (time, value) =>
 export const getMovies = createAsyncThunk(
   "user/getMovies",
   async (data, thunkAPI) => {
-    // const response = await axios.post('/login', {
-    // 	email: data.email,
-    // 	password: data.password,
-    // });
-    // console.log(response);
-    const result = await delay(500, {});
-    // console.log("result", result);
+    // const result = await axios.post("/login", data);
+    // console.log(result);
+    const result = await delay(500, data);
+    console.log(data);
+    console.log("result", result);
     return result;
   }
 );
