@@ -9,14 +9,28 @@ const delay = (time, value) =>
   });
 
 export const getReviews = createAsyncThunk(
-  "api/reviews/:id",//api/reviews/:id
+  "api/reviews/:id", //api/reviews/:id
   async (data, thunkAPI) => {
+    // start = null, size = 3
+    // let _paging = thunkAPI.getState().review.paging;
+    // if (_paging.start && !_paging.next) {
+    //   return;
+    // }
+    // const result = await axios.get(
+    //   `/reviews?start=${data.start}&size=${data.size + 1}`
+    // );
     const response = await axios.get(`/reviews?movie_id=${data.movie_id}`);
     // const result = await delay(500, response.data);
     // console.log(response.data);
+    // let paging = {
+    //   start: result[0],
+    //   next: result.length === data.size + 1 ? result[result.length - 1] : null,
+    //   size: data.size,
+    // };
+    // return [result.data, paging];
     return response.data;
   }
-)
+);
 
 // export const createReview = createAsyncThunk(
 //   "api/reviews",
@@ -37,7 +51,6 @@ export const getReviews = createAsyncThunk(
 //   }
 // );
 
-
 // const axios = require('axios');
 
 // axios.post('http://localhost:3000/users', {
@@ -49,4 +62,4 @@ export const getReviews = createAsyncThunk(
 //     console.log(resp.data);
 // }).catch(error => {
 //     console.log(error);
-// });  
+// });

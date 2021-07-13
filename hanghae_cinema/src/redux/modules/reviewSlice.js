@@ -3,7 +3,7 @@ import { getReviews } from "../async/review";
 
 const initialState = {
   list: [],
-  // paging: { start: null, next: null, size: 12 },
+  paging: { start: null, next: null, size: 3 },
   isLoading: false,
   isDone: false,
   isError: null,
@@ -12,9 +12,7 @@ const initialState = {
 const reviewSlice = createSlice({
   name: "reviews",
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(getReviews.pending, (state, action) => {
