@@ -1,8 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Button, Input } from "../elements";
+//redux
+import { useSelector, useDispatch } from "react-redux";
 
-const ReviewWrite = () => {
+const ReviewWrite = (props) => {
+	const dispatch = useDispatch();
+
+	const [name, setName] = React.useState("");
+	const [review, setReview] = React.useState("");
+	const insertedName = (e) => {setName(e.target.value);};
+	const insertedReview = (e) => {setReview(e.target.value);};
+
+	const saveReview = () => {
+		//check data validity
+		if(name === "" || review === ""){
+				window.alert("이름과 리뷰를 남겨주세요.");
+			return;
+		}
+		console.log(name);
+		console.log(review);
+		// dispatch(리듀서(name, review));
+	}
+
     return (
       <React.Fragment>
         <ItemCard>
@@ -12,11 +32,13 @@ const ReviewWrite = () => {
 					</Contents>
 					<Contents style={{padding: "0px 8px 0px 16px", flexDirection: "column", flex: 1}}>
             <div style={{}}>
-              <Input placeholder="이름" />
-              <Input placeholder="리뷰를 남겨 주세요." />
+              <Input placeholder="이름" 
+								_onChange={insertedName}/>
+              <Input placeholder="리뷰를 남겨 주세요."
+								_onChange={insertedReview}/>
             </div> 
             <div style={{textAlign: "right"}}>
-              <Button margin="24px 0px 4px" text="SAVE"></Button>
+              <Button margin="24px 0px 4px" text="SAVE" _onClick={saveReview}></Button>
             </div> 
 					</Contents>
 				</Contents>		
