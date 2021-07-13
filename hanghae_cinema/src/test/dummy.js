@@ -9,7 +9,7 @@ export const generateDummyMovie = (number) =>
       title: faker.name.findName(),
       genre: faker.name.findName(),
       actor: faker.name.findName(),
-      run_time: faker.datatype.number(),
+      runtime: faker.datatype.number(),
       rating: faker.datatype.float(),
       image: faker.image.imageUrl(),
     }));

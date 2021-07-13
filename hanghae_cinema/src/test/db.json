@@ -1,1 +1,13 @@
-{}
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "랑종",
+      "genre": "공포",
+      "actor": "연기자",
+      "runtime": "125분",
+      "rating": "3.5",
+      "image": "https://movie-phinf.pstatic.net/20210630_28/1625030138001Xq38w_JPEG/movie_image.jpg"
+    }
+  ]
+}

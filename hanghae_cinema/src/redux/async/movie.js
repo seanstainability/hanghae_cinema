@@ -20,29 +20,28 @@ export const getMovies = createAsyncThunk(
     // const result = await axios.get(
     //   `/movies?start=${data.start}&size=${data.size + 1}`
     // );
-    // const result = await axios.get("/movies");
-    // console.log(result);
-    const response = generateDummyMovie(12);
-    console.log(response);
-    const result = await delay(500, response);
+    const result = await axios.get("/movies");
+    // const response = generateDummyMovie(12);
+    // console.log(response);
+    // const result = await delay(500, response);
     // let paging = {
     //   start: result[0],
     //   next: result.length === data.size + 1 ? result[result.length - 1] : null,
     //   size: data.size,
     // };
-    console.log("result", result);
-    // return [result, paging];
-    return result;
+    console.log("result", result.data);
+    // return [result.data, paging];
+    return result.data;
   }
 );
 
-// export const search = createAsyncThunk(
-//   "movie/getMovie",
-//   async (data, thunkAPI) => {
-//     // const result = await axios.get(`/search?title=${data.title}`);
-//     // console.log(result);
-//     const result = await delay(500, generateDummyMovie(1));
-//     console.log("result", result);
-//     return result;
-//   }
-// );
+export const search = createAsyncThunk(
+  "movie/search",
+  async (data, thunkAPI) => {
+    // const result = await axios.get(`/search?title=${data.title}`);
+    // console.log(result);
+    const result = await delay(500, generateDummyMovie(1));
+    console.log("result", result);
+    return result;
+  }
+);
