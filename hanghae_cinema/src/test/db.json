@@ -134,7 +134,8 @@
       "user_code": "fbUrZLfv5ma",
       "user_nickname": "Craig Berge",
       "moviecode": "IeGA-KKSOKM",
-      "contents": "Vero et qui voluptatem."
+      "contents": "Vero et qui voluptatem.",
+      "likes": 0
     },
     {
       "movie_id": "3",
@@ -142,7 +143,8 @@
       "user_code": "9N2aXOuEexD",
       "user_nickname": "Israel Schumm",
       "moviecode": "0urbo2CfX3I",
-      "contents": "Voluptate voluptas sed adipisci ut temporibus."
+      "contents": "Voluptate voluptas sed adipisci ut temporibus.",
+      "likes": 0
     },
     {
       "movie_id": "3",
@@ -150,7 +152,8 @@
       "user_code": "mgMT2B-DUJH",
       "user_nickname": "Curtis Beatty",
       "moviecode": "v3CTjiUPP41",
-      "contents": "Incidunt animi voluptatum dolor voluptas nulla minus."
+      "contents": "Incidunt animi voluptatum dolor voluptas nulla minus.",
+      "likes": 0
     },
     {
       "movie_id": "3",
@@ -158,7 +161,8 @@
       "user_code": "Qnd2DnKf98G",
       "user_nickname": "Maria Torphy",
       "moviecode": "j5ydR4EWWTQ",
-      "contents": "Illo autem sed et tempore ut."
+      "contents": "Illo autem sed et tempore ut.",
+      "likes": 0
     },
     {
       "movie_id": "3",
@@ -166,7 +170,8 @@
       "user_code": "ddzRKA9d_a5",
       "user_nickname": "Miss Jeffery Schmeler",
       "moviecode": "gE1WSDeB4K4",
-      "contents": "Sit ut magnam quia rerum maxime."
+      "contents": "Sit ut magnam quia rerum maxime.",
+      "likes": 0
     },
     {
       "movie_id": "4",
@@ -174,7 +179,8 @@
       "user_code": "_OcrriNhUwZ",
       "user_nickname": "Ben Bechtelar",
       "moviecode": "Kr6d6_szQwD",
-      "contents": "Quod officia quis vel."
+      "contents": "Quod officia quis vel.",
+      "likes": 0
     },
     {
       "movie_id": "4",
@@ -182,7 +188,8 @@
       "user_code": "aizGIS1m_Y0",
       "user_nickname": "Sergio Schmeler",
       "moviecode": "tAgERoJic07",
-      "contents": "Eaque aliquid dignissimos quis aut."
+      "contents": "Eaque aliquid dignissimos quis aut.",
+      "likes": 0
     },
     {
       "movie_id": "4",
@@ -190,7 +197,8 @@
       "user_code": "HFyGuKixjEi",
       "user_nickname": "Roland Wiza DVM",
       "moviecode": "xFlPi9ceNnR",
-      "contents": "Sunt odit aspernatur."
+      "contents": "Sunt odit aspernatur.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -198,7 +206,8 @@
       "user_code": "IL8M3YmN6CZ",
       "user_nickname": "Agnes Sauer",
       "moviecode": "DJxvdl8DPre",
-      "contents": "Quo optio beatae ratione nihil dolor quasi neque."
+      "contents": "Quo optio beatae ratione nihil dolor quasi neque.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -206,7 +215,8 @@
       "user_code": "whPYorcMR1U",
       "user_nickname": "Rickey Turcotte",
       "moviecode": "H0MegJYH-Sy",
-      "contents": "Id sed aut quia ea iusto cum rerum."
+      "contents": "Id sed aut quia ea iusto cum rerum.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -214,7 +224,8 @@
       "user_code": "zCChO6P_tT5",
       "user_nickname": "Ted Lowe",
       "moviecode": "RNTl403vc84",
-      "contents": "Eaque sunt dignissimos delectus optio ipsum qui nihil magni voluptates."
+      "contents": "Eaque sunt dignissimos delectus optio ipsum qui nihil magni voluptates.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -222,7 +233,8 @@
       "user_code": "4FdPVK5YERy",
       "user_nickname": "Carolyn Schneider",
       "moviecode": "9wDfc2FT_jw",
-      "contents": "Magnam laborum cum ea voluptatem iure velit nihil eum."
+      "contents": "Magnam laborum cum ea voluptatem iure velit nihil eum.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -230,7 +242,8 @@
       "user_code": "yPWhEbg_jyB",
       "user_nickname": "Lee Pfeffer",
       "moviecode": "cM4aXvu6_01",
-      "contents": "Laboriosam rerum dolorem cupiditate ut et nemo ut quia modi."
+      "contents": "Laboriosam rerum dolorem cupiditate ut et nemo ut quia modi.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -238,7 +251,8 @@
       "user_code": "pBsRCuGjp7B",
       "user_nickname": "Denise Bogan",
       "moviecode": "Gn_Ep4XjBLc",
-      "contents": "Omnis et quos eos animi qui."
+      "contents": "Omnis et quos eos animi qui.",
+      "likes": 0
     },
     {
       "movie_id": "2",
@@ -246,7 +260,8 @@
       "user_code": "9_NQaR4jNUb",
       "user_nickname": "Florence Nader",
       "moviecode": "Lx2xJDtqfsW",
-      "contents": "Iusto est nesciunt non est."
+      "contents": "Iusto est nesciunt non est.",
+      "likes": 0
     }
   ]
 }

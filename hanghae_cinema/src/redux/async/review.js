@@ -63,3 +63,24 @@ export const getReviews = createAsyncThunk(
 // }).catch(error => {
 //     console.log(error);
 // });
+
+export const addLike = createAsyncThunk(
+  "review/addLike",
+  async (data, thunkAPI) => {
+    // const result = await axios.patch(`/reviews/${data.review_id}/like`);
+    const response = {
+      movie_id: "3", // movie_id를 맞추어 테스트 해야함!
+      review_id: "idH5O3-1muC",
+      user_code: "mgMT2B-DUJH",
+      user_nickname: "Curtis Beatty",
+      moviecode: "v3CTjiUPP41",
+      contents: "Incidunt animi voluptatum dolor voluptas nulla minus.",
+      likes: 1,
+    };
+    const result = await delay(500, response);
+    // console.log(response);
+    // console.log("result", result.data);
+    // return result.data;
+    return result;
+  }
+);
