@@ -1,72 +1,43 @@
-# 항해시네마
+# 항해 시네마 🍿
 
-### Getting Started with Create React App
+**항해 시네마 프로젝트의 Front-end Repo입니다.**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🍿 [사이트]()
 
-## Available Scripts
+🎬 [유튜브]()
 
-In the project directory, you can run:
+📁 [백엔드 Repo]()
 
-### `yarn start`
+## 개요
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 프로젝트 : 항해 시네마
+- 개발 인원 : 5명(리액트 2명, 스프링 3명)
+- 개발 기간 : 2021.07.09 ~ 2021.07.15
+- 주요 기능 : 영화 목록 및 상세 정보, 영화 리뷰 작성 및 좋아요
+- 개발 : React, Redux Toolkit, Axios
+- 디자인 : Ant Design, Styled-components
+- 테스트 : JSON Server, Postman, Faker.js, Shortid
+- 협업 : Slack, [Notion](https://www.notion.so/d30d58c74c47472fadf86200fdc03d7a), Git
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 특징
 
-### `yarn test`
+### Redux Toolkit
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- thunk와 immer가 내장되어 있다.
+- redux devtools도 내장되어 있다.
+- takeLatest, takeEvery 이외에는 거의 쓰지 않기 때문에 saga도 쓰지 않아도 될 것 같다.
+  → throttle, debounce는 lodash와 thunk의 조합으로 해결할 수 있다.
+- 코드량이 상당히 줄어들었다.
 
-### `yarn build`
+### Git Flow
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 4개의 브랜치로 협업
+- main 브랜치는 버전 release용 브랜치로 사용
+- develop 브랜치를 주축으로 개발 진행
+- 기능별 브랜치가 아닌 개발자별로 브랜치를 생성하여 작업 진행
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Figma
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 디자인 단계에 들어가기 전에 Figma를 가지고 구체적인 와이어프레이밍 작업을 거침
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  👉 [피그마 링크](https://www.figma.com/file/CsQy3j8MBb2tCdpFWwjLJ7/Hanghae-Cinema?node-id=0%3A1)
