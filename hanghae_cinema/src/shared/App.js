@@ -13,6 +13,11 @@ import Detail from "../pages/Detail";
 // import Mypage from "../pages/Mypage";
 import { Counter } from "../pages/Counter"; // Test!
 import TestAssets from "../pages/TestAssets"; // Test!
+import axios from "axios";
+
+axios.defaults.baseURL =
+  "https://my-json-server.typicode.com/seanstainability/hanghae_cinema_db/";
+// axios.defaults.withCredentials = true;
 
 function App() {
   return (
