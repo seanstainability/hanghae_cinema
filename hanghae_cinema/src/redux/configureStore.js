@@ -12,7 +12,7 @@ import reviewSlice from "./modules/reviewSlice";
 
 export const history = createBrowserHistory();
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "http://localhost:3000";
 // axios.defaults.withCredentials = true;
 
 const reducer = combineReducers({

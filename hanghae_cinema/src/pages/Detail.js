@@ -22,7 +22,7 @@ const Detail = (props) => {
 
 	// {"movie_id" : id}
 	const id = props.match.params.id
-	const {list, isDone, isLoading } = useSelector((state) => state.review );
+	const {list, isDone, isLoading } = useSelector((state) => state.review);
 	React.useEffect(() => {
 		dispatch(getReviews({"movie_id" : id}))		
 	}, [])
