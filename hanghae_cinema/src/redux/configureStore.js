@@ -7,13 +7,18 @@ import { connectRouter } from "connected-react-router";
 import userSlice from "./modules/userSlice";
 import counterSlice from "./modules/counterSlice"; // Test!
 import movieSlice from "./modules/movieSlice";
+import reviewSlice from "./modules/reviewSlice";
 
 export const history = createBrowserHistory();
+
+axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.withCredentials = true;
 
 const reducer = combineReducers({
   user: userSlice.reducer,
   movie: movieSlice.reducer,
   counter: counterSlice.reducer,
+  review: reviewSlice.reducer,
   router: connectRouter(history),
 });
 

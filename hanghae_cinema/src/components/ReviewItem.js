@@ -4,19 +4,17 @@ import { Button, Text } from "../elements";
 import { LikeFilled } from '@ant-design/icons';
 
 const ReviewItem = (props) => {
-
 	return (
 		<>
 			<ItemCard>
 				<Contents>
-
 					<Contents style={{textAlign: "center"}}>
 						<ProfileImage />
 					</Contents>
-
+					{/* 리뷰 카드 */}
 					<Contents style={{padding: "0px 16px", flexDirection: "column"}}>
-						<Text bold>씨네21 || 배동미</Text>
-						<Text margin="0px">점입가경 빙의, 옥죄어 오는 공포. 극장에서 도망치고 싶었다</Text>
+						<Text bold>{props.review.user_nickname}</Text>
+						<Text margin="0px">{props.review.contents}</Text>
 						{/* <Text margin="0px">insert_dt</Text> */}
 						{/* <div>
 							<Button margin="16px 0px 4px 0px" type="edit" text="EDIT"/>
@@ -24,38 +22,15 @@ const ReviewItem = (props) => {
 					</Contents>	
 
 				</Contents>
-				<Contents style={{
-					textAlign: "center", 
-					width: "40px" , 
-					marginLeft: "auto", 
-					flexDirection: "column"}}>
-					<Button type="icon"><LikeFilled style={{fontSize: "2.8rem",}}/></Button>
-					<Text bold>10</Text>
-				</Contents>			
-			</ItemCard>
-
-			{/* Test */}
-			<ItemCard>
-				<Contents>
-
-					<Contents style={{textAlign: "center"}}>
-						<ProfileImage />
-					</Contents>
-
-					<Contents style={{padding: "0px 16px", flexDirection: "column"}}>
-						<Text bold>user_name</Text>
-						<Text margin="0px">comment</Text>
-					</Contents>	
-
-				</Contents>
-				<Contents style={{
+				{/* 좋아요 버튼 */}
+				{/* <Contents style={{
 					textAlign: "center", 
 					width: "40px" , 
 					marginLeft: "auto", 
 					flexDirection: "column"}}>
 					<Button type="icon"><LikeFilled style={{fontSize: "2.8rem",}}/></Button>
 					<Text bold>Likes</Text>
-				</Contents>			
+				</Contents>			 */}
 			</ItemCard>
 		</>
 	)
