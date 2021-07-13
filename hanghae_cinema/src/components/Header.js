@@ -16,6 +16,7 @@ const Header = (props) => {
             style={{ height: "100%", display: "flex", alignItems: "center" }}
             onClick={() => {
               props.history.push("/movies");
+              // props.history.goBack();
             }}
           >
             <Logo type="header" size="30px" />

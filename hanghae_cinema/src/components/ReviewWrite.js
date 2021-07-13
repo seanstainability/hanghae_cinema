@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import { Button, Input } from "../elements";
 //redux
 import { useSelector, useDispatch } from "react-redux";
+import { createReview } from "../redux/async/review";
 
 const ReviewWrite = (props) => {
 	const dispatch = useDispatch();
@@ -11,16 +12,17 @@ const ReviewWrite = (props) => {
 	const [review, setReview] = React.useState("");
 	const insertedName = (e) => {setName(e.target.value);};
 	const insertedReview = (e) => {setReview(e.target.value);};
+	const movie_id= props.props.match.params.id;
 
 	const saveReview = () => {
 		//check data validity
-		if(name === "" || review === ""){
+		console.log("name, review, movie_id")
+		if (name === "" || review === ""){
 				window.alert("이름과 리뷰를 남겨주세요.");
 			return;
 		}
-		console.log(name);
-		console.log(review);
-		// dispatch(리듀서(name, review));
+		console.log(name, review, movie_id)
+		dispatch(createReview({name: name, review: review, movie_id: movie_id}));
 	}
 
     return (
@@ -32,9 +34,11 @@ const ReviewWrite = (props) => {
 					</Contents>
 					<Contents style={{padding: "0px 8px 0px 16px", flexDirection: "column", flex: 1}}>
             <div style={{}}>
-              <Input placeholder="이름" 
+              <Input placeholder="이름"
+								value={name}
 								_onChange={insertedName}/>
               <Input placeholder="리뷰를 남겨 주세요."
+								value={review}
 								_onChange={insertedReview}/>
             </div> 
             <div style={{textAlign: "right"}}>

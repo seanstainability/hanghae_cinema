@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getReviews } from "../async/review";
+import { addLike, getReviews, createReview } from "../async/review";
 
 const initialState = {
   list: [],
-  // paging: { start: null, next: null, size: 12 },
+  paging: { start: null, next: null, size: 3 },
   isLoading: false,
   isDone: false,
   isError: null,
@@ -12,9 +12,7 @@ const initialState = {
 const reviewSlice = createSlice({
   name: "reviews",
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(getReviews.pending, (state, action) => {
@@ -26,6 +24,20 @@ const reviewSlice = createSlice({
       .addCase(getReviews.rejected, (state, action) => {
         state.error = action.error;
       })
+
+      .addCase(addLike.fulfilled, (state, action) => {
+        const review = state.list.find(
+          (r) => r.review_id === action.payload.review_id
+        );
+        // review.Likers.push({ id: action.payload.user_id });
+        review.likes += 1;
+      })
+
+      .addCase(createReview.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.list.unshift(action.payload);
+      })
+
       .addMatcher(
         (action) => {
           return action.type.includes("/pending");
@@ -51,6 +63,7 @@ const reviewSlice = createSlice({
         },
         (state, action) => {
           state.isLoading = false;
+          console.log(action.error);
           state.isError = action.error;
         }
       ),

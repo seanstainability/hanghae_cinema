@@ -20,6 +20,8 @@ const movieSlice = createSlice({
       })
       .addCase(getMovies.fulfilled, (state, action) => {
         state.list = action.payload;
+        // state.list = action.payload[0];
+        // state.paging = action.payload[1];
       })
       .addCase(getMovies.rejected, (state, action) => {
         state.error = action.error;

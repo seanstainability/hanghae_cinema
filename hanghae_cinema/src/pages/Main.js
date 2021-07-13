@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMovies } from "../redux/async/movie";
 import { Layout, Row, Col } from "antd";
@@ -16,7 +16,7 @@ const Main = (props) => {
     (state) => state.movie
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (list.length < 2) {
       dispatch(getMovies());
     }
