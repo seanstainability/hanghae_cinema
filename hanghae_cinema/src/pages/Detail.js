@@ -32,6 +32,11 @@ const Detail = (props) => {
   const _movie = is_movie ? movie_list.find((movie) => movie.id === id) : null;
   //   console.log("target_movie", _movie);
   const [movie, setMovie] = useState(_movie ? _movie : "");
+  
+  // 리뷰 불러오기
+	React.useEffect(() => {
+		dispatch(getReviews({"movie_id" : id}))		
+	}, [])
 
   React.useEffect(() => {
     if (is_movie && !_movie) {
@@ -43,6 +48,7 @@ const Detail = (props) => {
       dispatch(getReviews({ movie_id: id }));
     }
   }, []);
+
 
   return (
     <React.Fragment>
@@ -97,7 +103,9 @@ const Detail = (props) => {
                 <EditFilled style={{ fontSize: "2.4rem" }} />
               </Button>
             </HeadingBlock>
-            {isWriteVisible ? <ReviewWrite /> : null}
+
+            {isWriteVisible ? <ReviewWrite props={props}/> : null}
+
             <InfinityScroll
               callNext={() => {
                 dispatch(getReviews({ movie_id: id, page: paging.next }));
@@ -106,14 +114,15 @@ const Detail = (props) => {
               loading={isLoading}
             >
               {isDone &&
-                list.map((r) => {
+
+                list.map((r, index) => {
                   return (
-                    <div key={r.id}>
+                    <div key={index}>
                       <ReviewList {...r} history={history} />
                     </div>
                   );
                 })}
-              {/* <ReviewList /> */}
+
             </InfinityScroll>
           </Contents>
         </Row>

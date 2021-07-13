@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addLike, getReviews } from "../async/review";
+import { addLike, getReviews, createReview } from "../async/review";
+
 
 const initialState = {
   list: [],
@@ -24,6 +25,7 @@ const reviewSlice = createSlice({
       .addCase(getReviews.rejected, (state, action) => {
         state.error = action.error;
       })
+
       .addCase(addLike.fulfilled, (state, action) => {
         const review = state.list.find(
           (r) => r.review_id === action.payload.review_id
@@ -31,6 +33,12 @@ const reviewSlice = createSlice({
         // review.Likers.push({ id: action.payload.user_id });
         review.likes += 1;
       })
+
+      .addCase(createReview.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.list.unshift(action.payload);
+      })
+
       .addMatcher(
         (action) => {
           return action.type.includes("/pending");
