@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn } from "../async/user";
+import { useHistory } from "react-router-dom";
+import { logIn, signUp } from "../async/user";
 
 const initialState = {
-  isLoggingIn: false,
-  data: null,
+  me: null,
+  isLoading: false,
+  isDone: false,
+  isError: null,
 };
 
 const userSlice = createSlice({
@@ -11,22 +14,44 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     logOut: (state, action) => {
-      state.data = null;
+      sessionStorage.removeItem("access_token");
+      state.me = null;
     },
   },
   extraReducers: (builder) =>
     builder
-      .addCase(logIn.pending, (state, action) => {
-        state.data = null;
-        state.isLoggingIn = true;
-      })
       .addCase(logIn.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.isLoggingIn = false;
+        sessionStorage.setItem("access_token", action.payload[1].access_token);
+        state.me = action.payload[0];
       })
-      .addCase(logIn.rejected, (state, action) => {
-        state.error = action.payload;
-      }),
+      .addMatcher(
+        (action) => {
+          return action.type.includes("/pending");
+        },
+        (state, action) => {
+          state.isLoading = true;
+          state.isDone = false;
+          state.isError = null;
+        }
+      )
+      .addMatcher(
+        (action) => {
+          return action.type.includes("/fulfilled");
+        },
+        (state, action) => {
+          state.isLoading = false;
+          state.isDone = true;
+        }
+      )
+      .addMatcher(
+        (action) => {
+          return action.type.includes("/rejected");
+        },
+        (state, action) => {
+          state.isLoading = false;
+          state.isError = action.error;
+        }
+      ),
 });
 
 export const { logOut } = userSlice.actions;

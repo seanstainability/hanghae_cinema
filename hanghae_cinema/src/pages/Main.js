@@ -15,11 +15,19 @@ const Main = (props) => {
   const { list, paging, isDone, isLoading } = useSelector(
     (state) => state.movie
   );
+  const { me } = useSelector((state) => state.user);
+  const is_session = sessionStorage.getItem("access_token") ? true : false;
+  console.log("is_session", is_session);
+
+  if (!is_session && !me) {
+    window.alert("로그아웃 되었습니다.");
+    props.history.push("/");
+  }
 
   useEffect(() => {
-    if (list.length < 2) {
-      dispatch(getMovies());
-    }
+    // if (list.length < 2) {
+    dispatch(getMovies());
+    // }
   }, []);
 
   return (
@@ -44,22 +52,22 @@ const Main = (props) => {
         > */}
         <SearchInput />
         <Row gutter={[8, 16]}>
-          <InfinityScroll
+          {/* <InfinityScroll
             callNext={() => {
               dispatch(getMovies(paging.next));
             }}
             isNext={paging.next ? true : false}
             loading={isLoading}
-          >
-            {isDone &&
-              list.map((m) => {
-                return (
-                  <Col span={6}>
-                    <Movie key={m.id} {...m} history={history} />
-                  </Col>
-                );
-              })}
-          </InfinityScroll>
+          > */}
+          {isDone &&
+            list.map((m) => {
+              return (
+                <Col span={6}>
+                  <Movie key={m.id} {...m} history={history} />
+                </Col>
+              );
+            })}
+          {/* </InfinityScroll> */}
         </Row>
         {/* </Layout.Content> */}
       </Layout>

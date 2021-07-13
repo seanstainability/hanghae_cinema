@@ -16,7 +16,7 @@ const Input = (props) => {
 
   if (multiLine) {
     return (
-      // {label && <Text margin="0px">{label}</Text>}
+      // label && <Text margin="0px">{label}</Text>
       <ElTextarea
         maxLength={100}
         placeholder={placeholder}

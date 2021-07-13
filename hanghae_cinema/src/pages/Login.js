@@ -1,19 +1,38 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { logIn } from "../redux/async/user";
-// import { Input } from "../elements";
+import { logIn } from "../redux/async/user";
+import { Input } from "../elements";
 import styled from "styled-components";
 import { Form } from "antd";
 import Logo from "../components/Logo";
 import { Button, Text } from "../elements";
+import { emailCheck } from "../shared/common";
 
 const Login = (props) => {
-  // const user = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
+  const { me, isDone } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  // const onLogIn = useCallback(() => {
-  //   // dispatch();
-  // }, []);
+  const [email, setEmail] = React.useState("");
+  const [pwd, setPwd] = React.useState("");
+
+  if (isDone && me) {
+    props.history.push("/movies");
+  }
+
+  const onLogIn = () => {
+    console.log(email, pwd);
+    if (email === "" || pwd === "") {
+      window.alert("아이디 혹은 비밀번호가 공란입니다! 입력해주세요!");
+      return;
+    }
+
+    if (!emailCheck(email)) {
+      window.alert("이메일 형식이 맞지 않습니다!");
+      return;
+    }
+
+    dispatch(logIn(email, pwd));
+  };
 
   // Test!
   // const onClick = useCallback(() => {
@@ -30,28 +49,39 @@ const Login = (props) => {
       <Wrap>
         <Logo />
         <FormWrap>
-          {/* <FormWrap onFinish={onLogIn}> */}
-          {/* <Form.Item>
+          <Form.Item>
             <Input
               label="EMAIL"
               placeholder="이메일를 입력해주세요."
-              _onChange={(e) => {}}
+              value={email}
+              _onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
           </Form.Item>
           <Form.Item>
             <Input
               type="password"
               label="PASSWORD"
+              isSubmit
               placeholder="비밀번호를 입력해주세요."
-              _onChange={(e) => {}}
+              value={pwd}
+              _onChange={(e) => {
+                setPwd(e.target.value);
+              }}
             />
-          </Form.Item> */}
+          </Form.Item>
+          <Button width="50%" _onClick={onLogIn}>
+            로그인
+          </Button>
           <Button
+            type="secondary"
+            width="50%"
             _onClick={() => {
-              props.history.push("/movies");
+              props.history.push("/signup");
             }}
           >
-            입장하기
+            회원가입
           </Button>
         </FormWrap>
       </Wrap>

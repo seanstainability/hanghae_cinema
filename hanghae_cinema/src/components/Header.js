@@ -2,9 +2,13 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import Logo from "./Logo";
 import styled from "styled-components";
-// import { LogoutOutlined } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { logOut } from "../redux/modules/userSlice";
 
 const Header = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <React.Fragment>
       <HeaderWrap>
@@ -31,8 +35,13 @@ const Header = (props) => {
             color: "#ffffff",
           }}
         >
-          <Menu.Item key="1">
-            {/* <LogoutOutlined style={{ fontSize: "28px" }} /> */}
+          <Menu.Item
+            key="1"
+            onClick={() => {
+              dispatch(logOut());
+            }}
+          >
+            <LogoutOutlined style={{ fontSize: "28px" }} />
           </Menu.Item>
         </Menu>
       </HeaderWrap>
