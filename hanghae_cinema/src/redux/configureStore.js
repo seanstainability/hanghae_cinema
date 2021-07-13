@@ -1,5 +1,6 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
+import axios from "axios";
 
 import { createBrowserHistory } from "history";
 import { connectRouter } from "connected-react-router";
@@ -11,7 +12,7 @@ import reviewSlice from "./modules/reviewSlice";
 
 export const history = createBrowserHistory();
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://localhost:4000";
 // axios.defaults.withCredentials = true;
 
 const reducer = combineReducers({
