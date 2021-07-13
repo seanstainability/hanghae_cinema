@@ -23,6 +23,8 @@ const ReviewWrite = (props) => {
 		}
 		console.log(name, review, movie_id)
 		dispatch(createReview({name: name, review: review, movie_id: movie_id}));
+		setName("");
+		setReview("");
 	}
 
     return (
