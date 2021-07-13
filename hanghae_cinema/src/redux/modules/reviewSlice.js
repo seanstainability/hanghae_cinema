@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addLike, getReviews, createReview } from "../async/review";
 
-
 const initialState = {
   list: [],
   paging: { start: null, next: null, size: 3 },

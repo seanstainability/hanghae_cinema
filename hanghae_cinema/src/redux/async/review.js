@@ -10,22 +10,13 @@ const delay = (time, value) =>
   });
 
 export const getReviews = createAsyncThunk(
-
-  "api/reviews/:id", //api/reviews/:id
+  "api/reviews/:id",//api/reviews/:id, 추후 백엔드와 api url 확인
   async (data, thunkAPI) => {
-    // start = null, size = 3
-    // let _paging = thunkAPI.getState().review.paging;
-    // if (_paging.start && !_paging.next) {
-    //   return;
-    // }
-    // const result = await axios.get(
-    //   `/reviews?start=${data.start}&size=${data.size + 1}`
-    // );
     const response = await axios.get(`/reviews?movie_id=${data.movie_id}`);
     // const result = await delay(500, response.data);
     return response.data;
   }
-);
+)
 
 export const createReview = createAsyncThunk(
   "api/reviews",//api/reviews/:id, 추후 백엔드와 api url 확인
