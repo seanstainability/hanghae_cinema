@@ -13,25 +13,25 @@ export const getMovies = createAsyncThunk(
   "movie/getMovies",
   async (data, thunkAPI) => {
     // start = null, size = 12
-    // let _paging = thunkAPI.getState().movie.paging;
-    // if (_paging.start && !_paging.next) {
-    //   return;
-    // }
-    // const result = await axios.get(
-    //   `/movies?start=${data.start}&size=${data.size + 1}`
-    // );
-    const result = await axios.get("/movies");
+    let _paging = thunkAPI.getState().movie.paging;
+    if (_paging.start && !_paging.next) {
+      return;
+    }
+    const result = await axios.get(
+      `/api/movie?start=${data.start}&size=${data.size + 1}`
+    );
+    // const result = await axios.get("/api/movie");
     // const response = generateDummyMovie(12);
     // console.log(response);
     // const result = await delay(500, response);
-    // let paging = {
-    //   start: result[0],
-    //   next: result.length === data.size + 1 ? result[result.length - 1] : null,
-    //   size: data.size,
-    // };
-    console.log("result", result.data);
-    // return [result.data, paging];
-    return result.data;
+    let paging = {
+      start: result[0],
+      next: result.length === data.size + 1 ? result[result.length - 1] : null,
+      size: data.size,
+    };
+    // console.log("result", result.data.content);
+    return [result.data.content, paging];
+    // return result.data.content;
   }
 );
 

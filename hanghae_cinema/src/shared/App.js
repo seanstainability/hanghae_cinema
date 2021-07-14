@@ -16,7 +16,8 @@ import TestAssets from "../pages/TestAssets"; // Test!
 import axios from "axios";
 
 axios.defaults.baseURL =
-  "https://my-json-server.typicode.com/seanstainability/hanghae_cinema_db/";
+  // "https://my-json-server.typicode.com/seanstainability/hanghae_cinema_db/";
+  "http://52.78.6.39/";
 // axios.defaults.withCredentials = true;
 
 function App() {
