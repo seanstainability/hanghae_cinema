@@ -23,21 +23,22 @@ export const createReview = createAsyncThunk(
   async (data, thunkAPI) => {
     const newReview = {
       moviecode: data.moviecode,
-      user_name: data.name,
+      username: data.name,
       contents: data.review,
       // "user_code" :"",
     };
     const response = await axios.post("/api/review", newReview);
     console.log(response.data);
-    return newReview; // 리턴 수정필요
+    return response.data; // 리턴 수정필요
   }
 );
 
 export const addLike = createAsyncThunk(
   "review/addLike",
   async (data, thunkAPI) => {
-    const result = await axios.put(`/api/like`, {
-      id: data.id,
+    const result = await axios.post(`/api/like`, {
+      review: data.id,
+      user: data.email,
     });
     // const response = {
     //   movie_id: "3", // movie_id를 맞추어 테스트 해야함!
@@ -52,6 +53,6 @@ export const addLike = createAsyncThunk(
     // console.log(response);
     console.log("result", result.data);
     // return result.data;
-    return result.data;
+    return { review_id: data.id };
   }
 );

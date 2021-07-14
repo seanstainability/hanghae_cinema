@@ -7,6 +7,7 @@ import { addLike } from "../redux/async/review";
 
 const ReviewItem = (props) => {
   const dispatch = useDispatch();
+  console.log(props.review);
 
   return (
     <>
@@ -17,7 +18,7 @@ const ReviewItem = (props) => {
           </Contents>
           {/* 리뷰 카드 */}
           <Contents style={{ padding: "0px 16px", flexDirection: "column" }}>
-            <Text bold>{props.review.user_name}</Text>
+            <Text bold>{props.review.username}</Text>
             <Text margin="0px">{props.review.contents}</Text>
             {/* <Text margin="0px">insert_dt</Text> */}
             {/* <div>
@@ -37,14 +38,16 @@ const ReviewItem = (props) => {
           <Button
             type="icon"
             _onClick={() => {
-              dispatch(addLike({ id: props.review.id }));
+              dispatch(
+                addLike({ id: props.review.id, email: props.review.username })
+              );
             }}
           >
             <LikeFilled style={{ fontSize: "2.8rem" }} />
           </Button>
           <Text bold>
             Likes <br />
-            {props.review.likes}
+            {props.review.likecount}
           </Text>
         </Contents>
       </ItemCard>

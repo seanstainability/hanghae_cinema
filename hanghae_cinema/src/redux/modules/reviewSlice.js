@@ -26,9 +26,11 @@ const reviewSlice = createSlice({
       })
 
       .addCase(addLike.fulfilled, (state, action) => {
-        const review = state.list.find((r) => r.id === action.payload.id);
+        const review = state.list.find(
+          (r) => r.id === parseInt(action.payload.review_id)
+        );
         // review.Likers.push({ id: action.payload.user_id });
-        review.likes += 1;
+        review.likecount += 1;
       })
 
       .addCase(createReview.fulfilled, (state, action) => {
