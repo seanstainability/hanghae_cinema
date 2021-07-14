@@ -37,7 +37,7 @@ const ReviewItem = (props) => {
           <Button
             type="icon"
             _onClick={() => {
-              dispatch(addLike({ review_id: props.review.review_id }));
+              dispatch(addLike({ id: props.review.id }));
             }}
           >
             <LikeFilled style={{ fontSize: "2.8rem" }} />

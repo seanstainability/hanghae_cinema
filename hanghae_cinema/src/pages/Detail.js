@@ -22,21 +22,23 @@ const Detail = (props) => {
     setIsWriteVisible((isWriteVisible) => !isWriteVisible);
   };
   const { list, isDone, isLoading } = useSelector(
-  // const { list, isDone, isLoading, paging } = useSelector(
+    // const { list, isDone, isLoading, paging } = useSelector(
     (state) => state.review
   ); // getreview 수정
 
   const movie_list = useSelector((state) => state.movie.list); // 들어옴
   const id = props.match.params.id;
   const is_movie = id ? true : false;
-  
-  const _movie = is_movie ? movie_list.find((movie) => movie.moviecode === id) : null;
+
+  const _movie = is_movie
+    ? movie_list.find((movie) => movie.moviecode === id)
+    : null;
   const [movie, setMovie] = useState(_movie ? _movie : ""); // 잘 들어옴
 
   // 리뷰 불러오기
-	React.useEffect(() => {
-		dispatch(getReviews({"moviecode" : id}))		
-	}, [])
+  React.useEffect(() => {
+    dispatch(getReviews({ moviecode: id }));
+  }, []);
 
   React.useEffect(() => {
     // if (is_movie && !_movie) {
@@ -44,7 +46,6 @@ const Detail = (props) => {
     //   history.goBack();
     //   return;
     // } 서버 연결 테스트 하면서 주석처리함
-
     // if (list.length < 2) {
     //   dispatch(getReviews({ movie_id: id }));
     // }
@@ -63,10 +64,8 @@ const Detail = (props) => {
       >
         <Row gutter={[8, 16]}>
           <ImageOutter>
-          <Header history={history} />
-            <MovieImage src={movie.img}>
-              {/* test: header */}              
-            </MovieImage>
+            <Header history={history} />
+            <MovieImage src={movie.img}>{/* test: header */}</MovieImage>
           </ImageOutter>
           <Contents>
             <Text serif type="hKR" bold size="3.2rem">
@@ -91,7 +90,9 @@ const Detail = (props) => {
               </Text>
               <Text size="1.6rem">{movie.runtime}</Text>
             </MovieInfo>
-            {/* <Text serif size="1.6rem">태국 북동부 ‘이산’ 지역 낯선 시골 마을. 집 안, 숲, 산, 나무, 논밭까지, 이 곳의 사람들은 모든 것에 혼이 깃들어 있다고 믿는다. 가문의 대를 이어 조상신 ‘바얀 신’을 모시는 랑종(무당) ‘님’은 조카 ‘밍’의 상태가 심상치 않음을 직감한다. 날이 갈수록 이상 증세가 점점 심각해지는 ‘밍’. 무당을 취재하기 위해 ‘님’과 동행했던 촬영팀은 신내림이 대물림되는 순간을 포착하기 위해 ‘밍’과 ‘님’, 그리고 가족에게 벌어지는 미스터리한 현상을 카메라에 담기 시작한다. 신내림이 대물림되는 무당 가문피에 관한 세 달간의 기록.</Text> */}
+            <Text serif size="1.6rem">
+              {movie.plot}
+            </Text>
             <Text size="1.6rem" color="#736F68">
               출연: {movie.actor}
             </Text>
@@ -103,7 +104,7 @@ const Detail = (props) => {
                 <EditFilled style={{ fontSize: "2.4rem" }} />
               </Button>
             </HeadingBlock>
-            {isWriteVisible ? <ReviewWrite props={props}/> : null}
+            {isWriteVisible ? <ReviewWrite props={props} /> : null}
             {/* <InfinityScroll
               callNext={() => {
                 dispatch(getReviews({ movie_id: id, page: paging.next }));
@@ -111,14 +112,14 @@ const Detail = (props) => {
               isNext={paging.next ? true : false}
               loading={isLoading}
             > */}
-              {isDone &&
-                list.map((r, index) => {
-                  return (
-                    <div key={index}>
-                      <ReviewList {...r} history={history} />
-                    </div>
-                  );
-                })}
+            {isDone &&
+              list.map((r, index) => {
+                return (
+                  <div key={index}>
+                    <ReviewList {...r} history={history} />
+                  </div>
+                );
+              })}
             {/* </InfinityScroll> */}
           </Contents>
         </Row>

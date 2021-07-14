@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Movie = (props) => {
   const { id, title, img, history, moviecode } = props;
-  console.log(img);
+  // console.log(img);
   return (
     <React.Fragment>
       <Card
