@@ -27,7 +27,8 @@ function App() {
         <Route path="/" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/movies" exact component={Main} />
-        <Route path="/movie/:id" exact component={Detail} />
+        <Route path="/api/movie/:id" exact component={Detail} />
+        {/* <Route path="/movie/:id" exact component={Detail} />  서버 연동 테스트 하면서 라우트 수정 함 리뷰 필요*/}
         {/* <Route path="/profile" exact component={Mypage} /> */}
         <Route path="/counter" exact component={Counter} />
         <Route path="/test" exact component={TestAssets} /> {/* test */}

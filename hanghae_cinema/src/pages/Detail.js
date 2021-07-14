@@ -21,32 +21,33 @@ const Detail = (props) => {
   const toggleWriteField = () => {
     setIsWriteVisible((isWriteVisible) => !isWriteVisible);
   };
-  const { list, isDone, isLoading, paging } = useSelector(
+  const { list, isDone, isLoading } = useSelector(
+  // const { list, isDone, isLoading, paging } = useSelector(
     (state) => state.review
-  );
-  const movie_list = useSelector((state) => state.movie.list);
+  ); // getreview 수정
+
+  const movie_list = useSelector((state) => state.movie.list); // 들어옴
   const id = props.match.params.id;
   const is_movie = id ? true : false;
-  //   console.log("list", list);
-  //   console.log("movie_id", id);
-  const _movie = is_movie ? movie_list.find((movie) => movie.id === id) : null;
-  //   console.log("target_movie", _movie);
-  const [movie, setMovie] = useState(_movie ? _movie : "");
+  
+  const _movie = is_movie ? movie_list.find((movie) => movie.moviecode === id) : null;
+  const [movie, setMovie] = useState(_movie ? _movie : ""); // 잘 들어옴
 
   // 리뷰 불러오기
 	React.useEffect(() => {
-		dispatch(getReviews({"movie_id" : id}))		
+		dispatch(getReviews({"moviecode" : id}))		
 	}, [])
 
   React.useEffect(() => {
-    if (is_movie && !_movie) {
-      window.alert("직접 접근이 불가능합니다.");
-      history.goBack();
-      return;
-    }
-    if (list.length < 2) {
-      dispatch(getReviews({ movie_id: id }));
-    }
+    // if (is_movie && !_movie) {
+    //   window.alert("직접 접근이 불가능합니다.");
+    //   history.goBack();
+    //   return;
+    // } 서버 연결 테스트 하면서 주석처리함
+
+    // if (list.length < 2) {
+    //   dispatch(getReviews({ movie_id: id }));
+    // }
   }, []);
 
   return (
@@ -62,9 +63,9 @@ const Detail = (props) => {
       >
         <Row gutter={[8, 16]}>
           <ImageOutter>
-            <MovieImage src={movie.image}>
-              {/* test: header */}
-              <Header history={history} />
+          <Header history={history} />
+            <MovieImage src={movie.img}>
+              {/* test: header */}              
             </MovieImage>
           </ImageOutter>
           <Contents>
@@ -73,7 +74,7 @@ const Detail = (props) => {
             </Text>
             <MovieInfo>
               <Text size="1.6rem" color="#F29F8D">
-                {movie.rating}
+                {movie.star}
               </Text>
               <Text size="1.6rem" color="#736F68" margin="0px 12px">
                 |
@@ -103,13 +104,13 @@ const Detail = (props) => {
               </Button>
             </HeadingBlock>
             {isWriteVisible ? <ReviewWrite props={props}/> : null}
-            <InfinityScroll
+            {/* <InfinityScroll
               callNext={() => {
                 dispatch(getReviews({ movie_id: id, page: paging.next }));
               }}
               isNext={paging.next ? true : false}
               loading={isLoading}
-            >
+            > */}
               {isDone &&
                 list.map((r, index) => {
                   return (
@@ -118,7 +119,7 @@ const Detail = (props) => {
                     </div>
                   );
                 })}
-            </InfinityScroll>
+            {/* </InfinityScroll> */}
           </Contents>
         </Row>
       </Layout>

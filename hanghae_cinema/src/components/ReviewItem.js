@@ -17,7 +17,7 @@ const ReviewItem = (props) => {
           </Contents>
           {/* 리뷰 카드 */}
           <Contents style={{ padding: "0px 16px", flexDirection: "column" }}>
-            <Text bold>{props.review.user_nickname}</Text>
+            <Text bold>{props.review.user_name}</Text>
             <Text margin="0px">{props.review.contents}</Text>
             {/* <Text margin="0px">insert_dt</Text> */}
             {/* <div>

@@ -10,29 +10,28 @@ const delay = (time, value) =>
   });
 
 export const getReviews = createAsyncThunk(
-  "api/reviews/:id",//api/reviews/:id, 추후 백엔드와 api url 확인
+  "api/review/:id",
   async (data, thunkAPI) => {
-    const response = await axios.get(`/reviews?movie_id=${data.movie_id}`);
+    const response = await axios.get(`api/review/${data.moviecode}`);
     // const result = await delay(500, response.data);
     return response.data;
   }
 )
 
 export const createReview = createAsyncThunk(
-  "api/reviews",//api/reviews/:id, 추후 백엔드와 api url 확인
+  "api/reviews",
   async (data, thunkAPI) => {
     const newReview = {
-      "movie_id": data.movie_id,
-      "id": shortId.generate(),
-      "user_nickname" : data.name,
+      "moviecode": data.moviecode,
+      "user_name" : data.name,
       "contents" : data.review,
       // "user_code" :"",
-      // "moviecode" : "moviecode"(string),
     };
     const response = await axios.post(
-      "/reviews/", newReview
+      "/api/review", newReview
     )
-    return newReview;
+    console.log(response.data)
+    return newReview; // 리턴 수정필요
   }
 );  
 
