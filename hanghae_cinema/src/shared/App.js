@@ -21,6 +21,7 @@ axios.defaults.baseURL =
 // axios.defaults.withCredentials = true;
 
 function App() {
+  window.scrollTo(0, sessionStorage.getItem("scrollY"));
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>

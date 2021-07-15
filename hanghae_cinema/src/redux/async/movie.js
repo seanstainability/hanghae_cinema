@@ -9,43 +9,44 @@ const delay = (time, value) =>
     }, time);
   });
 
+let flag = 0;
 export const getMovies = createAsyncThunk(
   "movie/getMovies",
   async (data, thunkAPI) => {
     // paging.page = 1, paging.size = 12
     let _paging = thunkAPI.getState().movie.paging;
-    // if (!_paging.next) {
-    //   return;
-    // }
 
-    // const result = await axios.get(
-    //   `/api/movie?start=${_paging.page}&size=${_paging.size}`
-    // );
+    console.log("flag_before", flag);
+    if (flag && !_paging.next) {
+      return;
+    }
 
+    // console.log(_paging);
     const result = await axios.get(
-      "/api/movie"
-    ); 
+      `/api/movie?page=${_paging.page}&size=${_paging.size}`
+    );
+
+    // const result = await axios.get("/api/movie");
 
     // const response = generateDummyMovie(12);
     // console.log(response);
     // const result = await delay(500, response);
-    
-    // let paging = {
-    //     page: 
-    //     size: ,
-    //   };
 
-    // let paging = {
-    //   start: result[0],
-    //   next: result.length === data.size + 1 ? result[result.length - 1] : null,
-    //   size: data.size,
-    // };
+    let current_page = result.data.pageable.pageNumber + 1;
+    flag = 1;
+    let paging = {
+      page: current_page,
+      next:
+        // result.length === _paging.size + 1 ? result[result.length - 1] : null,
+        result.data.totalPages === current_page + 1 ? false : true,
+      size: _paging.size,
+    };
+    console.log("flag_after", flag);
+    console.log("paging", paging);
+    console.log("result", result.data.content);
 
-    // console.log("result", result.data.content);
-
-    // return [result.data.content, paging];
-
-    return result.data;
+    return [result.data.content, paging];
+    // return result.data;
   }
 );
 

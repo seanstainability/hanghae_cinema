@@ -3,7 +3,7 @@ import { getMovies, search } from "../async/movie";
 
 const initialState = {
   list: [],
-  paging: { page: 1, size: 12 },
+  paging: { page: 0, next: null, size: 24 },
   // paging: { start: 1, next: null, size: 12 },
   isLoading: false,
   isDone: false,
@@ -16,13 +16,12 @@ const movieSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
-      .addCase(getMovies.pending, (state, action) => {
-        state.list = null;
-      })
       .addCase(getMovies.fulfilled, (state, action) => {
-        state.list = action.payload; // 서버 연동 테스트 하면서 수정 함 리뷰 필요
+        // state.list = action.payload; // 서버 연동 테스트 하면서 수정 함 리뷰 필요
         // state.list = action.payload[0];
-        // state.paging = action.payload[1];
+        // console.log(action.payload[0]);
+        state.list = [...(state.list || []), ...action.payload[0]];
+        state.paging = action.payload[1];
       })
       .addCase(getMovies.rejected, (state, action) => {
         state.error = action.error;
@@ -61,6 +60,7 @@ const movieSlice = createSlice({
         },
         (state, action) => {
           state.isLoading = false;
+          // console.log(action.error);
           state.isError = action.error;
         }
       ),
