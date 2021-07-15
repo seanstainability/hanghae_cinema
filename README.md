@@ -4,7 +4,7 @@
 
 🍿 [사이트](http://seanstainability.s3-website.ap-northeast-2.amazonaws.com)
 
-🎬 [유튜브]()
+🎬 [유튜브](https://www.youtube.com/watch?v=DKZqvjCQouk)
 
 📁 [백엔드 Repo](https://github.com/swcide/HangHaeCinema)
 
