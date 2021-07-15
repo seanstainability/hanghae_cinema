@@ -99,9 +99,9 @@ const ProfileImage = styled.div`
 	width: var(--size);
 	height: var(--size);
 	border-radius: var(--size);
-	background-color: #736F68;
-	/* background-image: url("${(props) => props.src}");
-	background-size: cover; */
+	/* background-color: #736F68; */
+	background-image: url("https://lh3.googleusercontent.com/UOwo-NLSEBU2W4wx79CarKI9PeevdPbxHECwpqJYT3gpwsmf5gcqh-_w5HfY2HRzMVMt_JVRuMTh5NvD216qIUAgiIOywY4W077SfAeDmOkWOmH3T-dkt67l1xJ4deL4faB4qFe4");
+	background-size: cover;
 `;
 
 
