@@ -16,7 +16,7 @@ const reviewSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getReviews.pending, (state, action) => {
-        state.list = null;
+        state.list = [];
       })
       .addCase(getReviews.fulfilled, (state, action) => {
         state.list = action.payload;
@@ -27,14 +27,14 @@ const reviewSlice = createSlice({
 
       .addCase(addLike.fulfilled, (state, action) => {
         const review = state.list.find(
-          (r) => r.review_id === action.payload.review_id
+          (r) => r.id === parseInt(action.payload.review_id)
         );
         // review.Likers.push({ id: action.payload.user_id });
-        review.likes += 1;
+        review.likecount += 1;
       })
 
       .addCase(createReview.fulfilled, (state, action) => {
-        console.log(action.payload)
+        console.log(action.payload);
         state.list.unshift(action.payload);
       })
 

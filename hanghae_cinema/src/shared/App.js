@@ -16,17 +16,20 @@ import TestAssets from "../pages/TestAssets"; // Test!
 import axios from "axios";
 
 axios.defaults.baseURL =
-  "https://my-json-server.typicode.com/seanstainability/hanghae_cinema_db/";
+  // "https://my-json-server.typicode.com/seanstainability/hanghae_cinema_db/";
+  "http://52.78.6.39/";
 // axios.defaults.withCredentials = true;
 
 function App() {
+  window.scrollTo(0, sessionStorage.getItem("scrollY"));
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>
         <Route path="/" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/movies" exact component={Main} />
-        <Route path="/movie/:id" exact component={Detail} />
+        <Route path="/api/movie/:id" exact component={Detail} />
+        {/* <Route path="/movie/:id" exact component={Detail} />  서버 연동 테스트 하면서 라우트 수정 함 리뷰 필요*/}
         {/* <Route path="/profile" exact component={Mypage} /> */}
         <Route path="/counter" exact component={Counter} />
         <Route path="/test" exact component={TestAssets} /> {/* test */}

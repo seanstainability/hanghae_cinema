@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMovies } from "../redux/async/movie";
 import { Layout, Row, Col } from "antd";
@@ -15,12 +15,20 @@ const Main = (props) => {
   const { list, paging, isDone, isLoading } = useSelector(
     (state) => state.movie
   );
+  const [scrollY, setScrollY] = useState(sessionStorage.getItem("scrollY"));
 
   useEffect(() => {
+    sessionStorage.setItem("scrollY", 0);
+    setScrollY(sessionStorage.getItem("scrollY"));
     if (list.length < 2) {
       dispatch(getMovies());
     }
   }, []);
+
+  // useLayoutEffect(() => {
+  //   console.log("scrollY", sessionStorage.getItem("scrollY"));
+  //   window.scrollTo(0, scrollY);
+  // }, [scrollY]);
 
   return (
     <>
@@ -46,9 +54,11 @@ const Main = (props) => {
         <Row gutter={[8, 16]}>
           <InfinityScroll
             callNext={() => {
-              dispatch(getMovies(paging.next));
+              sessionStorage.setItem("scrollY", window.scrollY);
+              setScrollY(sessionStorage.getItem("scrollY"));
+              dispatch(getMovies());
             }}
-            isNext={paging.next ? true : false}
+            isNext={paging.next}
             loading={isLoading}
           >
             {isDone &&

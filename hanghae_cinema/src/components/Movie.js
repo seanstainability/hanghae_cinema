@@ -3,15 +3,16 @@ import { Card } from "antd";
 import styled from "styled-components";
 
 const Movie = (props) => {
-  const { id, title, image, history } = props;
+  const { id, title, img, history, moviecode } = props;
+  // console.log(img);
   return (
     <React.Fragment>
       <Card
         hoverable
         style={{ padding: 0 }}
-        cover={<ImgWrap alt={title} src={image} />}
+        cover={<ImgWrap alt={title} src={img} />}
         onClick={() => {
-          history.push(`/movie/${id}`);
+          history.push(`/api/movie/${moviecode}`);
         }}
       ></Card>
     </React.Fragment>

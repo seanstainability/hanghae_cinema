@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import _ from "lodash";
 import { Spinner } from "../elements";
 
@@ -15,7 +15,10 @@ const InfinityScroll = (props) => {
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
 
-    if (scrollHeight - innerHeight - scrollTop < 200) {
+    // console.log("100 / ", scrollHeight - innerHeight - scrollTop);
+    // console.log("scrollY", window.scrollY);
+
+    if (scrollHeight - innerHeight - scrollTop < 100) {
       callNext();
     }
   }, 300);
@@ -39,7 +42,7 @@ const InfinityScroll = (props) => {
   return (
     <React.Fragment>
       {props.children}
-      {isNext && <Spinner />}
+      {/* {isNext && <Spinner />} */}
     </React.Fragment>
   );
 };
