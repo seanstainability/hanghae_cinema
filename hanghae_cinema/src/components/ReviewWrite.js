@@ -12,8 +12,8 @@ const ReviewWrite = (props) => {
 	const [review, setReview] = React.useState("");
 	const insertedName = (e) => {setName(e.target.value);};
 	const insertedReview = (e) => {setReview(e.target.value);};
-	
-	const movie_list = useSelector((state) => state.movie.list); // 들어옴
+
+  const movie_list = useSelector((state) => state.movie.list); // 들어옴
 	const id= props.props.match.params.id;
 	const is_movie = id ? true : false;
 	const _movie = is_movie ? 
@@ -24,8 +24,10 @@ const ReviewWrite = (props) => {
 		if (name === "" || review === ""){
 				window.alert("이름과 리뷰를 남겨주세요.");
 			return;
+
 		}		
 		dispatch(createReview({name: name, review: review, mid: movie.id}));
+
 		setName("");
 		setReview("");
 	}

@@ -7,7 +7,6 @@ import { addLike } from "../redux/async/review";
 
 const ReviewItem = (props) => {
   const dispatch = useDispatch();
-  // console.log(props.review);
 
   return (
     <>

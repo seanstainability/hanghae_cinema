@@ -13,6 +13,7 @@ export const getReviews = createAsyncThunk(
   "api/review/:id",
   async (data, thunkAPI) => {
     const response = await axios.get(`api/review/${data}`);
+
     // const result = await delay(500, response.data);
     return response.data;
   }
@@ -29,6 +30,7 @@ export const createReview = createAsyncThunk(
       // "user_code" :"",
     };
     const response = await axios.post(`/api/review`, newReview);
+
     console.log(response.data);
     return response.data; // 리턴 수정필요
   }

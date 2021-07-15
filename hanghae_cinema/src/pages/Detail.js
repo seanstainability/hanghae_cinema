@@ -34,11 +34,11 @@ const Detail = (props) => {
     movie_list.find((movie) => movie.moviecode === id) : null;
   const [movie, setMovie] = useState(_movie ? _movie : ""); // 잘 들어옴
   
-  const test = movie.id
+  const mid = movie.id
 
   // 리뷰 불러오기
   React.useEffect(() => {
-    dispatch(getReviews(test));
+    dispatch(getReviews(mid));
   }, []);
 
   React.useEffect(() => {
