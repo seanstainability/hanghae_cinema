@@ -33,6 +33,11 @@ const reviewSlice = createSlice({
         // state.list = action.payload;
         state.list = state.list.filter((v) => v.id !== action.payload);
       })
+      .addCase(deleteReview.rejected, (state, action) => {
+        // state.list = action.payload;
+        window.alert("비밀번호가 틀립니다. 나가주세요!");
+        window.history.back();
+      })
       .addCase(addLike.fulfilled, (state, action) => {
         const review = state.list.find(
           (r) => r.id === parseInt(action.payload.review_id)

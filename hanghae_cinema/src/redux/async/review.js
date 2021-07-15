@@ -38,10 +38,8 @@ export const deleteReview = createAsyncThunk(
   "api/deleteReview",
   async (data, thunkAPI) => {
     console.log(data.pwd, data.id);
-    const response = await axios.delete(`api/review/delete/${data.id}`, {
-      data: {
-        password: data.pwd,
-      },
+    const response = await axios.post(`api/review/delete/${data.id}`, {
+      password: data.pwd,
     });
     console.log("response", response);
     return data.id;
