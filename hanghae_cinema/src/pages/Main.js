@@ -6,7 +6,8 @@ import Movie from "../components/Movie";
 import Header from "../components/Header";
 import SearchInput from "../components/SearchInput";
 import { Spinner, Input } from "../elements";
-import InfinityScroll from "../shared/InfinityScroll";
+// import InfinityScroll from "../shared/InfinityScroll";
+import { Pagination } from "antd";
 
 const Main = (props) => {
   const { history } = props;
@@ -15,20 +16,22 @@ const Main = (props) => {
   const { list, paging, isDone, isLoading } = useSelector(
     (state) => state.movie
   );
-  const [scrollY, setScrollY] = useState(sessionStorage.getItem("scrollY"));
+  // const [scrollY, setScrollY] = useState(sessionStorage.getItem("scrollY"));
+  const [current, setCurrent] = useState(1);
+  console.log(paging);
 
   useEffect(() => {
-    sessionStorage.setItem("scrollY", 0);
-    setScrollY(sessionStorage.getItem("scrollY"));
-    if (list.length < 2) {
-      dispatch(getMovies());
-    }
-  }, []);
+    // sessionStorage.setItem("scrollY", 0);
+    // setScrollY(sessionStorage.getItem("scrollY"));
+    // if (list.length < 2) {
+    dispatch(getMovies({ current }));
+    // }
+  }, [current]);
 
-  // useLayoutEffect(() => {
-  //   console.log("scrollY", sessionStorage.getItem("scrollY"));
-  //   window.scrollTo(0, scrollY);
-  // }, [scrollY]);
+  const onChangePage = (page) => {
+    console.log(page);
+    setCurrent(page);
+  };
 
   return (
     <>
@@ -52,7 +55,7 @@ const Main = (props) => {
         > */}
         <SearchInput />
         <Row gutter={[8, 16]}>
-          <InfinityScroll
+          {/* <InfinityScroll
             callNext={() => {
               sessionStorage.setItem("scrollY", window.scrollY);
               setScrollY(sessionStorage.getItem("scrollY"));
@@ -60,17 +63,25 @@ const Main = (props) => {
             }}
             isNext={paging.next}
             loading={isLoading}
-          >
-            {isDone &&
-              list.map((m) => {
-                return (
-                  <Col span={6}>
-                    <Movie key={m.id} {...m} history={history} />
-                  </Col>
-                );
-              })}
-          </InfinityScroll>
+          > */}
+          {isDone &&
+            list.map((m) => {
+              return (
+                <Col span={6}>
+                  <Movie key={m.id} {...m} history={history} />
+                </Col>
+              );
+            })}
+          {/* </InfinityScroll> */}
         </Row>
+        <Pagination
+          simple
+          style={{ margin: "30px", textAlign: "center", paddingBottom: "60px" }}
+          defaultCurrent={1}
+          current={current}
+          onChange={onChangePage}
+          total={paging.total}
+        />
         {/* </Layout.Content> */}
       </Layout>
     </>

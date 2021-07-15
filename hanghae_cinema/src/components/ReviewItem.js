@@ -42,12 +42,12 @@ const ReviewItem = (props) => {
               );
             }}
           >
-            <LikeFilled style={{ fontSize: "2.8rem" }} />
+            {/* <LikeFilled style={{ fontSize: "2.8rem" }} /> */}
           </Button>
-          <Text bold>
+          {/* <Text bold>
             Likes <br />
             {props.review.likecount}
-          </Text>
+          </Text> */}
         </Contents>
       </ItemCard>
     </>

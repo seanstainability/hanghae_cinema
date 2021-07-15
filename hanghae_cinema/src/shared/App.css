@@ -38,3 +38,16 @@ body {
 .ant-menu-horizontal > .ant-menu-submenu::after {
   border-bottom: none;
 }
+
+.ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-simple .ant-pagination-next .ant-pagination-item-link {
+  color: #ffffff;
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager {
+  color: #ffffff;
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager input {
+  color: #000;
+}
