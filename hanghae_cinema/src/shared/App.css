@@ -6,6 +6,10 @@ body {
   background-color: #111426;
 }
 
+.ant-layout-header {
+  background: #111426;
+}
+
 .ant-card-body {
   padding: 0;
 }
