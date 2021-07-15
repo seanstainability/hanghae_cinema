@@ -31,13 +31,13 @@ const SearchInput = (props) => {
         <Button
           type="icon"
           htmlType="submit"
-          _onClick={() => {
-            console.log(value);
-            if (value === "") {
-              return dispatch(getMovies());
-            }
-            dispatch(search({ title: value }));
-          }}
+          // _onClick={() => {
+          //   console.log(value);
+          //   if (value === "") {
+          //     return dispatch(getMovies());
+          //   }
+          //   dispatch(search({ title: value }));
+          // }}
         >
           <SearchOutlined style={{ fontSize: "36px" }} />
         </Button>
