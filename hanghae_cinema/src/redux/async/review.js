@@ -12,22 +12,25 @@ const delay = (time, value) =>
 export const getReviews = createAsyncThunk(
   "api/review/:id",
   async (data, thunkAPI) => {
-    const response = await axios.get(`api/review/${data.moviecode}`);
+    const response = await axios.get(`api/review/${data}`);
+
     // const result = await delay(500, response.data);
     return response.data;
   }
 );
 
 export const createReview = createAsyncThunk(
-  "api/reviews",
+  "api/review",
   async (data, thunkAPI) => {
     const newReview = {
-      moviecode: data.moviecode,
+      mid: data.mid,
       username: data.name,
       contents: data.review,
+      password: "1234", 
       // "user_code" :"",
     };
-    const response = await axios.post("/api/review", newReview);
+    const response = await axios.post(`/api/review`, newReview);
+
     console.log(response.data);
     return response.data; // 리턴 수정필요
   }

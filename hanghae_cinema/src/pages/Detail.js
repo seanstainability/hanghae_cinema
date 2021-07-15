@@ -30,14 +30,15 @@ const Detail = (props) => {
   const id = props.match.params.id;
   const is_movie = id ? true : false;
 
-  const _movie = is_movie
-    ? movie_list.find((movie) => movie.moviecode === id)
-    : null;
+  const _movie = is_movie ? 
+    movie_list.find((movie) => movie.moviecode === id) : null;
   const [movie, setMovie] = useState(_movie ? _movie : ""); // 잘 들어옴
+  
+  const mid = movie.id
 
   // 리뷰 불러오기
   React.useEffect(() => {
-    dispatch(getReviews({ moviecode: id }));
+    dispatch(getReviews(mid));
   }, []);
 
   React.useEffect(() => {

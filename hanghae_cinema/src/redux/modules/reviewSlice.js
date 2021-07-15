@@ -16,7 +16,7 @@ const reviewSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getReviews.pending, (state, action) => {
-        state.list = null;
+        state.list = [];
       })
       .addCase(getReviews.fulfilled, (state, action) => {
         state.list = action.payload;
