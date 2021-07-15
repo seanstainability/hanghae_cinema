@@ -20,7 +20,7 @@ export const getReviews = createAsyncThunk(
 
 export const createReview = createAsyncThunk(
   "api/review",
-  async (data, thunkAPI) => {    
+  async (data, thunkAPI) => {
     const newReview = {
       mid: data.mid,
       username: data.name,
@@ -31,6 +31,20 @@ export const createReview = createAsyncThunk(
     const response = await axios.post("api/review", newReview);
     console.log(response);
     return response.data;
+  }
+);
+
+export const deleteReview = createAsyncThunk(
+  "api/deleteReview",
+  async (data, thunkAPI) => {
+    console.log(data.pwd, data.id);
+    const response = await axios.delete(`api/review/delete/${data.id}`, {
+      data: {
+        password: data.pwd,
+      },
+    });
+    console.log("response", response);
+    return data.id;
   }
 );
 

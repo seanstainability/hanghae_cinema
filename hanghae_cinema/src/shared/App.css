@@ -10,6 +10,12 @@ body {
   background: #111426;
 }
 
+.ant-modal-body,
+.ant-modal-footer {
+  background: #111426;
+  border-top: 0px;
+}
+
 .ant-card-body {
   padding: 0;
 }
@@ -54,4 +60,19 @@ body {
 
 .ant-pagination-simple .ant-pagination-simple-pager input {
   color: #000;
+}
+
+.ant-btn-primary {
+  background-color: #d91250;
+  border-color: #f02162;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #f02162;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: #f02162;
 }

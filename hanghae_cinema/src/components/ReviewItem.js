@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Button, Text } from "../elements";
-import { LikeFilled } from "@ant-design/icons";
+import { Button, Text, Input } from "../elements";
+// import { LikeFilled } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { addLike } from "../redux/async/review";
+import { deleteReview } from "../redux/async/review";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Modal } from "antd";
 
 const ReviewItem = (props) => {
   const dispatch = useDispatch();
+  const [visible, setVisible] = React.useState(false);
+  const [confirmLoading, setConfirmLoading] = React.useState(false);
+  const [value, setValue] = useState("");
+
+  const onChangeValue = (e) => {
+    setValue(e.target.value);
+  };
+
+  const showModal = () => {
+    setVisible(true);
+  };
+
+  const handleOk = () => {
+    setConfirmLoading(true);
+    dispatch(deleteReview({ pwd: value, id: props.review.id }));
+    setTimeout(() => {
+      setVisible(false);
+      setConfirmLoading(false);
+    }, 2000);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
 
   return (
     <>
       <ItemCard>
         <Contents>
           <Contents style={{ textAlign: "center" }}>
-            <ProfileImage />
+            <ProfileImage src="https://lh3.googleusercontent.com/UOwo-NLSEBU2W4wx79CarKI9PeevdPbxHECwpqJYT3gpwsmf5gcqh-_w5HfY2HRzMVMt_JVRuMTh5NvD216qIUAgiIOywY4W077SfAeDmOkWOmH3T-dkt67l1xJ4deL4faB4qFe4" />
           </Contents>
           {/* 리뷰 카드 */}
           <Contents style={{ padding: "0px 16px", flexDirection: "column" }}>
@@ -34,16 +60,25 @@ const ReviewItem = (props) => {
             flexDirection: "column",
           }}
         >
-          <Button
-            type="icon"
-            _onClick={() => {
-              dispatch(
-                addLike({ id: props.review.id, email: props.review.username })
-              );
-            }}
-          >
+          <Button type="icon" _onClick={showModal}>
+            <DeleteOutlined style={{ fontSize: "2.8rem" }} />
             {/* <LikeFilled style={{ fontSize: "2.8rem" }} /> */}
           </Button>
+          <Modal
+            visible={visible}
+            onOk={handleOk}
+            confirmLoading={confirmLoading}
+            onCancel={handleCancel}
+            okText="삭제"
+            cancelText="취소"
+          >
+            <Input
+              value={value}
+              type="password"
+              _onChange={onChangeValue}
+              placeholder="비밀번호를 입력해주세요."
+            />
+          </Modal>
           {/* <Text bold>
             Likes <br />
             {props.review.likecount}
@@ -101,7 +136,7 @@ const ProfileImage = styled.div`
   height: var(--size);
   border-radius: var(--size);
   background-color: #736f68;
-  /* background-image: url("${(props) => props.src}");
+  background-image: url("${(props) => props.src}");
 	background-size: cover; */
 `;
 

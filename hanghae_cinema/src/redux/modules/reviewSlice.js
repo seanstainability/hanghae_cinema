@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addLike, getReviews, createReview } from "../async/review";
+import {
+  addLike,
+  getReviews,
+  createReview,
+  deleteReview,
+} from "../async/review";
 
 const initialState = {
   list: [],
@@ -24,7 +29,10 @@ const reviewSlice = createSlice({
       .addCase(getReviews.rejected, (state, action) => {
         state.error = action.error;
       })
-
+      .addCase(deleteReview.fulfilled, (state, action) => {
+        // state.list = action.payload;
+        state.list = state.list.filter((v) => v.id !== action.payload);
+      })
       .addCase(addLike.fulfilled, (state, action) => {
         const review = state.list.find(
           (r) => r.id === parseInt(action.payload.review_id)
