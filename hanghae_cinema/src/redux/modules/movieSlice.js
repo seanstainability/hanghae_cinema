@@ -20,7 +20,8 @@ const movieSlice = createSlice({
         // state.list = action.payload; // 서버 연동 테스트 하면서 수정 함 리뷰 필요
         // state.list = action.payload[0];
         // console.log(action.payload[0]);
-        state.list = [...(state.list || []), ...action.payload[0]];
+        // state.list = [...(state.list || []), ...action.payload[0]];
+        state.list.push(...action.payload[0]);
         state.paging = action.payload[1];
       })
       .addCase(getMovies.rejected, (state, action) => {
