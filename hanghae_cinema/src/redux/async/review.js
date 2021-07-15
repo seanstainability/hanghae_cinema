@@ -13,7 +13,6 @@ export const getReviews = createAsyncThunk(
   "api/review/:id",
   async (data, thunkAPI) => {
     const response = await axios.get(`api/review/${data}`);
-
     // const result = await delay(500, response.data);
     return response.data;
   }
@@ -21,18 +20,17 @@ export const getReviews = createAsyncThunk(
 
 export const createReview = createAsyncThunk(
   "api/review",
-  async (data, thunkAPI) => {
+  async (data, thunkAPI) => {    
     const newReview = {
       mid: data.mid,
       username: data.name,
       contents: data.review,
-      password: "1234", 
-      // "user_code" :"",
+      password: data.password,
     };
-    const response = await axios.post(`/api/review`, newReview);
-
-    console.log(response.data);
-    return response.data; // 리턴 수정필요
+    console.log(data);
+    const response = await axios.post("api/review", newReview);
+    console.log(response);
+    return response.data;
   }
 );
 

@@ -34,7 +34,6 @@ const reviewSlice = createSlice({
       })
 
       .addCase(createReview.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.list.unshift(action.payload);
       })
 

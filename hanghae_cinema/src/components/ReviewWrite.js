@@ -10,28 +10,29 @@ const ReviewWrite = (props) => {
 
 	const [name, setName] = React.useState("");
 	const [review, setReview] = React.useState("");
+	const [password, setPassword] = React.useState("");
 	const insertedName = (e) => {setName(e.target.value);};
 	const insertedReview = (e) => {setReview(e.target.value);};
+	const insertedPassword = (e) => {setPassword(e.target.value);};
 
-  const movie_list = useSelector((state) => state.movie.list); // 들어옴
+  const movie_list = useSelector((state) => state.movie.list);
 	const id= props.props.match.params.id;
 	const is_movie = id ? true : false;
 	const _movie = is_movie ? 
 	movie_list.find((movie) => movie.moviecode === id) : null;
-	const [movie, setMovie] = React.useState(_movie ? _movie : ""); // 잘 들어옴
+	const [movie, setMovie] = React.useState(_movie ? _movie : "");
+	
 	const saveReview = () => {
 		//check data validity
-		if (name === "" || review === ""){
-				window.alert("이름과 리뷰를 남겨주세요.");
+		if (name === "" || review === "" || password === ""){
+				window.alert("모든 칸을 입력하세요.");
 			return;
-
 		}		
-		dispatch(createReview({name: name, review: review, mid: movie.id}));
-
+		dispatch(createReview({name: name, review: review, mid: movie.id, password: password}));
 		setName("");
 		setReview("");
+		setPassword("");
 	}
-
     return (
       <React.Fragment>
         <ItemCard>
@@ -44,6 +45,10 @@ const ReviewWrite = (props) => {
               <Input placeholder="이름"
 								value={name}
 								_onChange={insertedName}/>
+							<Input placeholder="비밀번호"
+								type="password"
+								value={password}
+								_onChange={insertedPassword}/>
               <Input placeholder="리뷰를 남겨 주세요."
 								value={review}
 								_onChange={insertedReview}/>

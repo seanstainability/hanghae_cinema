@@ -2,7 +2,7 @@
 
 **항해 시네마 프로젝트의 Front-end Repo입니다.**
 
-🍿 [사이트]()
+🍿 [사이트](http://seanstainability.s3-website.ap-northeast-2.amazonaws.com)
 
 🎬 [유튜브]()
 
